@@ -1,0 +1,10 @@
+objkey=OBJECT
+filtkey=FILTER
+nitekey=NIGHT
+timekey=UT-TIME
+expkey=EXPTIME
+coaddkey=NLOOPS
+rakey=RA
+deckey=DEC
+rotkey=NONE
+pixscale=0.196

@@ -1,0 +1,12 @@
+inpat,s,a,"",,,"Glob pattern for raw images"
+forcecals,b,h,no,,,"Force re-creation of calibration files?"
+lampon,s,a,"lowlamp",,,"Object keyword value for dome flats (lampon)"
+lampoff,s,a,"lampsoff",,,"Object keyword value for dome flats (lampsoff)"
+logfile,s,a,"",,,"Name of log file for output or blank"
+objects,s,a,"",,,"Comma-delimited list of objects to process"
+filters,s,a,"",,,"Comma-delimited list of filters to process"
+objfilts,s,a,"",,,"Comma-delimited list of object-filter combos to process"
+steps,s,a,"",,,"Comma-delimited list of processing steps to run"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

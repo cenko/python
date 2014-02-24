@@ -1,0 +1,7 @@
+inlist,s,a,"",,,"Images to analyze"
+minlim,b,h,no,,,"Zero data in border regions?"
+minval,r,h,-90000.,,,"Minimum value (cutoff) for minlim"
+bkpfx,s,h,"_B",,,"Prefix for bacup image"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

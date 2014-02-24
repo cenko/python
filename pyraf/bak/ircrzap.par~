@@ -1,0 +1,8 @@
+inlist,s,a,"",,,"List of input files"
+outpfx,s,h,"c",,,"Prefix for output files"
+bpmkey,s,h,"BPM0",,,"Header keyword for static BPM file"
+bpmthresh,i,h,2,,,"Threshold to include in BPM"
+bpmupdate,b,h,no,,,"Update BPM?"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

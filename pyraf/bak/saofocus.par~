@@ -1,0 +1,6 @@
+inpat,s,a,"",,,"Glob pattern for images to analyze"
+endhow,s,h,"never",never|once|time,,"Completion condition"
+endwhen,s,h,"",,,"UT time at end (for endhow==time), as HH:MM"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

@@ -1,0 +1,9 @@
+inlist,s,a,"",,,"File containing list of images for mask combination"
+outpfx,s,h,"mask_",,,"Prefix for output masks"
+origkey,s,h,"NAME1",,,"Keyword for original file"
+key1,s,h,"BPM0",,,"Keyword for mask 1"
+key2,s,h,"CRMASK",,,"Keyword for mask 2"
+key3,s,h,"OBJMASK",,,"Keyword for mask 3"
+clobber,b,h,yes,,,"Clobber old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

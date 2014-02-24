@@ -1,0 +1,11 @@
+inlist,s,a,"",,,"List of candidate images to use for cals"
+lthresh,r,h,-16383.0,,,"Lower threshold for pixel values"
+hthresh,r,h,65535.0,,,"Upper threshold for pixel values"
+bookend,b,h,no,,,"Replace excess values with lthresh/hthresh?"
+replace,r,h,0.0,,,"Replacement value for clipped pixels (for bookend=no)"
+maskin,s,h,"!BPM",,,"Input bad pixel mask, filename or !keyword"
+maskout,s,h,"-bpm",,,"Output bad pixel mask, filename, !keyword, -suffix, or prefix-"
+maskval,i,h,1,,,"Mask value for clipped pixels"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

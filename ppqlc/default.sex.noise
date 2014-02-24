@@ -1,0 +1,21 @@
+CATALOG_TYPE    ASCII_HEAD      # "ASCII_HEAD","ASCII","FITS_1.0" or "FITS_LDAC"
+MAG_ZEROPOINT   27.5
+DETECT_THRESH    5.0            # <sigmas> or <threshold>,<ZP> in mag.arcsec-2
+ANALYSIS_THRESH  5.0            # <sigmas> or <threshold>,<ZP> in mag.arcsec-2
+DETECT_MINAREA   5            # minimum number of pixels above threshold
+
+DEBLEND_NTHRESH 32              # Number of deblending sub-thresholds
+DEBLEND_MINCONT 0.005           # Minimum contrast parameter for deblending
+
+BACK_SIZE       128              # Background mesh: <size> or <width>,<height>
+BACK_FILTERSIZE 3               # Background filter: <size> or <width>,<height>
+ 
+BACKPHOTO_TYPE  GLOBAL          # can be "GLOBAL" or "LOCAL"
+
+SEEING_FWHM     3.0
+
+
+PARAMETERS_NAME /project/projectdirs/deepsky/iptf/workroom/sbc/zpsee.param   # name of the file containing catalog contents
+FILTER_NAME     /project/projectdirs/deepsky/iptf/workroom/sbc/default.noise.conv    # name of the file containing the filter
+STARNNW_NAME    /project/projectdirs/deepsky/iptf/workroom/sbc/default.nnw     # Neural-Network_Weight table filename
+

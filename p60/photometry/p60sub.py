@@ -1,0 +1,1113 @@
+import pyraf
+from pyraf import iraf
+import copy, os, shutil, glob, sys, string, re, math, operator, numpy, time
+import pyfits
+from types import *
+from numpy import matrix
+from numpy import linalg
+
+from iqpkg import *
+import p60photutils
+
+# Necessary packages
+iraf.images()
+iraf.immatch()
+iraf.imfilter()
+iraf.noao()
+iraf.imred()
+iraf.ccdred()
+iraf.digiphot()
+iraf.apphot()
+
+yes=iraf.yes
+no=iraf.no
+INDEF=iraf.INDEF
+hedit=iraf.hedit
+imgets=iraf.imgets
+imcombine=iraf.imcombine
+
+pyrafdir="python/pyraf/"
+pyrafdir_key='PYRAFPARS'
+
+if os.environ.has_key(pyrafdir_key):
+    pardir=os.environ[pyrafdir_key]
+else:
+    pardir=os.environ['HOME']+'/'+pyrafdir
+
+if pardir[-1] != '/':
+    pardir += '/'
+
+globclob=yes
+globver=yes
+
+ROOTDIR = "/scr/ptf"
+P60DISTORT = "P60distort.head"
+SUBREGION = "[1:1024,1:1024]"
+
+######################################################################
+
+def p60sub(refimage, inlist, ra=-1, dec=-1, dx=-1, dy=-1, \
+ nsx=5, nsy=5, sx=1, sy=1, sat1=60000, sat2=60000, min=5, ms=130, dback=1, \
+ dspace=2, hms=9, hss=15, thresh=20, seeing=5.0, scale=0.0, tol=0.005, \
+ matchlist="", goodmatch=2.0, aorder=2, nstars=30, outim="", MAX=900, \
+ order=3, clobber=globclob):
+
+    """ subtraction pipeline for one object/filter P60 data """
+
+    # Parse inputs
+    infiles = iraffiles(inlist)
+
+    # Find location (in pixels) of central object if specified
+    [nx, ny] = get_head(refimage, ['NAXIS1', 'NAXIS2'])
+    if not ((ra == -1) and (dec == -1)):
+	[xcenpix, ycenpix] = imwcs2pix(refimage, ra, dec)
+    else:
+	xcenpix = (nx / 2.0)
+	ycenpix = (ny / 2.0)
+	[ra, dec] = impix2wcs(refimage, xcenpix, ycenpix)
+
+    # Trim the reference image 
+    if (dx == -1):
+	xl = 1
+	xu = nx
+    else:
+        xl = int(xcenpix - (dx / 2.0))
+        xu = int(xcenpix + (dx / 2.0))
+    if (dy == -1):
+	yl = 1
+	yu = ny
+    else:
+	yl = int(ycenpix - (dy / 2.0))
+        yu = int(ycenpix + (dy / 2.0))
+        
+    check_exist('t' + refimage, 'w', clobber)
+    iraf.imcopy(refimage + '[%i:%i,%i:%i]' % (xl, xu, yl, yu), \
+	 't' + refimage)
+
+    # Big Loop
+    for image in infiles:
+
+	# Separate image rootname from extension
+	imageroot = image.split('.')[0]
+
+     	# Check to make sure the WCS fit was successful
+	if not check_head(image, 'IQWCS'):
+	    print 'Skipping image %s: IQWCS not successful' % image
+	    infiles.remove(image)
+	    continue
+	# If so, then shift all the images appropriately
+	else:
+	    xsh = xcenpix - imwcs2pix(image, ra, dec)[0]
+	    ysh = ycenpix - imwcs2pix(image, ra, dec)[1]
+	    check_exist('s' + image, 'w', clobber)
+            iraf.imshift(image, 's' + image, xsh, ysh)
+	
+	# Make sure sky subtraction is not done
+	[skysub, skybkg] = get_head(image, ['SKYSUB', 'SKYBKG'])
+	if (skysub == 1):
+	    iraf.imarith('s'+image,'+',skybkg,'s'+image)
+
+	# Trim the images
+	check_exist('ts' + image, 'w', clobber)
+	iraf.imcopy('s' + image + '[%i:%i,%i:%i]' % (xl, xu, yl, yu), \
+	 'ts' + image)
+
+	# Cosmic Ray Cleaning
+	iraf.lacos_im('ts%s' % image, 'cts%s' % image, 'ts%s_crmask' % \
+	 imageroot, gain=2.2, readn=5.3, niter=3)
+
+	# Register the images
+	os.system('$REDUCTION/imregister_new.pl t%s cts%s -sat %i -thresh %i -s %f -scale %f -tol %f %s -o %i -g %i -n %i -out cts%s.shift.fits -max %i' % (refimage, image, sat1, thresh, seeing, scale, tol, matchlist, order, goodmatch, nstars, imageroot, MAX))
+	
+	# Write the configuration parameters for subtraction
+	pfile = open('default_config', 'w+')
+	pfile.write('nstamps_x		%i\n' % nsx)
+	pfile.write('nstamps_y		%i\n' % nsy)
+	pfile.write('sub_x		%i\n' % sx)
+	pfile.write('sub_y		%i\n' % sy)
+	pfile.write('half_mesh_size	%i\n' % hms)
+	pfile.write('half_stamp_size	%i\n' % hss)
+	pfile.write('deg_bg		%i\n' % dback)
+	pfile.write('saturation1	%f\n' % sat1)
+	pfile.write('saturation2        %f\n' % sat2)
+	pfile.write('pix_min		%i\n' % min)
+	pfile.write('min_stamp_center  	%i\n' % ms)
+	pfile.write('ngauss		3\n')
+	pfile.write('deg_gauss1		6\n')
+	pfile.write('deg_gauss2		4\n')
+	pfile.write('deg_gauss3		2\n')
+	pfile.write('sigma_gauss1	0.7\n')
+	pfile.write('sigma_gauss2	1.5\n')
+	pfile.write('sigma_gauss3	2.0\n')
+	pfile.write('deg_spatial	%i\n' % dspace)
+	pfile.write('reverse		0\n')
+	pfile.write('stampsbyxy		0\n')
+	pfile.close()
+
+	# Run the subtraction
+	os.system("$REDUCTION/ISIS/bin/mrj_phot t%s cts%s.shift.fits" \
+	 % (refimage, imageroot))
+
+	# Clean up files
+	os.system("mv conv.fits cts%s.shift.sub.fits" % imageroot)
+	os.system("mv conv0.fits cts%s.shift.conv.fits" % imageroot)
+
+    # Return
+    print 'Exiting successfully'
+    return
+
+###########################################################################
+
+def p60ptfall(object, ra, dec, filters=['gpr', 'rpr', 'ipr']):
+
+    '''Full machinery to generate P60 light curves for a given object
+    filter combination.'''
+
+    # Change to root directory
+    pyraf.iraffunctions.chdir("%s/%s" % (ROOTDIR, object))
+    
+    # Grab SDSS reference images
+    if not os.path.exists("%s/%s/sdss" % (ROOTDIR, object)):
+        os.mkdir("%s/%s/sdss" % (ROOTDIR, object))
+    pyraf.iraffunctions.chdir("%s/%s/sdss" % (ROOTDIR, object))
+    reqfilters = []
+    for filter in filters:
+        if not os.path.exists("%s-%s.fits" % (object, filter)):
+            reqfilters.append(filter)
+    if (reqfilters != []) and (not getsdssfits(object, ra, dec, filters)):
+        print "Could not retrieve SDSS image of field"
+        return -1
+
+    # Get SDSS region files
+    if not os.path.exists("%s-nopm.reg" % object):
+        getrefstars(object, ra, dec, pmcut=yes)
+    if not os.path.exists("%s-allpm.reg" % object):
+        getrefstars(object, ra, dec, pmcut=no)
+
+    # If OT file doesn't exist yet, create it
+    pyraf.iraffunctions.chdir("%s/%s" % (ROOTDIR, object))
+    star = Star(radeg=ra, dcdeg=dec, fwhmw=2.0, fwhm=2.0, name=object)
+    ot = Starlist(stars=[star])
+    ot.write("%s.reg" % object)
+
+    # Loop through filters
+    for filter in filters:
+
+        # Change to filter directory
+        pyraf.iraffunctions.chdir('%s/%s/p60/%s' % (ROOTDIR, object, filter))
+
+        # Copy SDSS reference image
+        shutil.copy("%s/%s/sdss/%s-%s.fits" % (ROOTDIR, object, object, filter),
+                    "%s/%s/p60/%s" % (ROOTDIR, object, filter))
+
+        # Copy SDSS region files for PSF stars
+        shutil.copy("%s/%s/sdss/%s-nopm.reg" % (ROOTDIR, object, object),
+                    "%s/%s/p60/%s" % (ROOTDIR, object, filter))
+        shutil.copy("%s/%s/sdss/%s-allpm.reg" % (ROOTDIR, object, object),
+                    "%s/%s/p60/%s" % (ROOTDIR, object, filter))
+
+        # Copy distortion correction from reference directory
+        shutil.copy("%s/%s/ref/%s" % (ROOTDIR, object, P60DISTORT),
+                    "%s/%s/p60/%s" % (ROOTDIR, object, filter))
+
+	# Verify astrometry
+        images = iraffiles('2*p.fits')
+        images.sort()
+        p60verifyast(images, "%s-allpm.reg" % object, cat="USNO-B1")
+        os.system("rm %s/%s/p60/%s/2*.head" % (ROOTDIR, object, filter))
+
+        # Trim images
+        images = iraffiles('2*p.fits')
+        images.sort()
+        pyraf.iraffunctions.chdir('%s/%s/p60/%s' % (ROOTDIR, object, filter))
+
+        for image in images:
+            update_head(image, ['EQUINOX','FILTER'], [2000.00, filter[0]])
+            iraf.imcopy('%s%s' % (image.split('.')[0], SUBREGION), 
+                        't%s' % image)
+
+        # NN2 Subtraction first
+        p60nn2sub("t20*p.fits", "%s/%s/%s.reg" % (ROOTDIR, object, object), 
+                  distortdeg=1, scthresh1=3.0, scthresh2=10.0, tu=40000, 
+                  iu=40000, ig=2.3, tg=2.3, stamps="%s-allpm.reg" % object, 
+                  nsx=3, nsy=3, ko=0, bgo=0, radius=10, tlow=None, ilow=None, 
+                  sthresh=10.0, ng=None, aperture=7.0)
+       
+        # Solve NN2 matrix
+        p60nn2solve("t20*p.fits", "%s-%s.nn2.dat" % (object, filter))
+
+        # SDSS Subtraction
+        update_head("%s-%s.fits" % (object, filter), "PIXSCALE", 0.378)
+        p60sdsssub("t20*p.fits", "%s-%s.fits" % (object, filter), 
+                   "%s/%s/%s.reg" % (ROOTDIR, object, object), distortdeg=1, 
+                   scthresh1=3.0, scthresh2=10.0, tu=20000, iu=30000, ig=2.3, 
+                   tg=1.0, stamps="%s-nopm.reg" % object, nsx=3, nsy=3, ko=0, 
+                   bgo=0, radius=10, tlow=0.0, ilow=None, sthresh=10.0, 
+                   ng=None, aperture=7.0, distfile=P60DISTORT)
+
+        # SDSS photometry
+        p60sdssresults("t20*p.fits", "%s-%s.sdss.dat" % (object, filter),
+                       object, filter, "%s-nopm.reg" % object, aperture=7.0)
+
+        # Calibrate NN2 light curve
+        p60nn2abs("%s-%s.nn2.dat" % (object, filter), 
+                  "%s-%s.sdss.dat" % (object, filter), 
+                  "%s-%s.abs.dat" % (object, filter), 
+		  "%sMAG" % filter[0].upper(), 
+                  refstars='%s-allpm.reg' % object, ig=2.3, aperture=7.0)
+
+        print "Completed filter %s" % filter
+
+    print "Exiting successfully"
+    return
+    
+###########################################################################
+
+def p60verifyast(images, refstars, rename=yes, prefix="fa_", cat="SDSS-R6"):
+
+    '''Try to correct astrometric solution for images that fail
+    ASCfit.  If still unsuccessful, rename file so skipped by subtraction
+    pipeline.'''
+
+    refs = Starlist(refstars)
+
+    for image in images:
+
+        if not get_head(image, 'IQWCS'):
+
+            # Run scamp
+            p60scamp(image, distortdeg=1, match=yes, cat=cat)
+
+            # Update image header with scamp results
+            hfile=open("%s.head" % image.split('.')[0],'r')
+            lines=hfile.readlines()
+            for line in lines:
+                keywords = line.strip().split()
+                if keywords[0] in ['CRVAL1','CRVAL2','CRPIX1','CRPIX2',
+                                   'CD1_1','CD1_2','CD2_1','CD2_2']:
+                    update_head(image, keywords[0], float(keywords[2]))
+
+            # Check with refstars
+            iqobjs(image, 2.0, 50000.0, wtimage="", fwhm=2.0, pix=0.378,
+                   gain=2.3, skyval="!SKYBKG")
+            stars=Starlist("%s.stars" % image)
+            refs.wcs2pix(image)
+            a,b=stars.match(refs)
+            if (len(a)==0) and rename:
+                print "Failed to fit astrometry for %s" % image
+                shutil.move(image, "%s%s" % (prefix, image))
+            else:
+                update_head(image, 'IQWCS', 1)
+
+    return
+            
+
+###########################################################################
+
+def p60hotpants(inlis, refimage, outimage, tu=50000, iu=50000, ig=2.3, tg=2.3,
+                stamps=None, nsx=4, nsy=4, ko=0, bgo=0, radius=10, 
+                tlow=0, ilow=0, sthresh=5.0, ng=None,
+                ngref=[3, 6, 0.70, 4, 1.50, 2, 3.00], scimage=no):
+
+    '''P60 Subtraction using HOTPANTS'''
+
+    subimages=iraffiles(inlis)
+
+    for image in subimages:
+
+        root = image.split('.')[0]
+        scmd="hotpants -inim %s -tmplim %s -outim %s -tu %.2f -tuk %.2f -iu %.2f -iuk %.2f -ig %.2f -tg %.2f -savexy %s.st -ko %i -bgo %i -nsx %i -nsy %i -r %i -rss %i -tl %f -il %f -ft %f -v 0 -c t -n i" % (image, refimage, outimage, tu, tu, iu, iu, ig, tg, root, ko, bgo, nsx, nsy, radius, radius*1.5, tlow, ilow, sthresh)
+        if not (stamps==None):
+            scmd += " -ssf %s -afssc 0" % stamps 
+        if (ng==None):
+            scmd += " -ng %i " % ngref[0]
+            seepix=get_head(image,'SEEPIX')
+            for k in range(1, len(ngref)-1, 2):
+                scmd+="%i %.2f " % (ngref[k], ngref[k+1]*float(seepix)/3.0)
+        if (scimage==yes):
+            scmd += ' -n i '
+        print scmd
+        cmd=os.popen(scmd,'r')
+        hlines=cmd.readlines()
+        cmd.close()
+
+    return
+
+############################################################################
+
+def p60swarp(image, outfile, ractr=None, dcctr=None, pixscale=None, size=None,
+             backsub=no):
+
+    '''Run SWarp on P60 images'''
+
+    swarpcmd='swarp %s ' % image
+    if ractr!=None or dcctr!=None:
+        swarpcmd+='-CENTER_TYPE MANUAL -CENTER "%s, %s" ' % (ractr, dcctr)
+    if pixscale!=None:
+        swarpcmd+='-PIXELSCALE_TYPE MANUAL -PIXEL_SCALE %f ' % pixscale
+    if size!=None:
+        swarpcmd+='-IMAGE_SIZE "%i, %i" ' % (size[0], size[1])
+    if backsub==no:
+        swarpcmd+='-SUBTRACT_BACK N '
+    swarpcmd+='-COPY_KEYWORDS OBJECT,SKYSUB,SKYBKG,SEEPIX '
+
+    scmd=os.popen(swarpcmd, 'r', -1)
+    scmd.readlines()
+    shutil.move('coadd.fits', outfile)
+
+############################################################################
+
+def p60nn2sub(inlis, ot, distortdeg=1, scthresh1=3.0, scthresh2=10.0, tu=40000, 
+           iu=40000, ig=2.3, tg=2.3, stamps=None, nsx=4, nsy=4, ko=0, 
+           bgo=0, radius=10, tlow=None, ilow=None, sthresh=10.0, 
+           ng=None, aperture=10.0):
+
+    '''P60 NN2 Subtraction using Scamp for alignment and HOTPANTS for
+      subtraction.'''
+
+    images=iraffiles(inlis)
+    images.sort()
+
+    # Loop over 'reference' images
+    for i in range(len(images)-1):
+    
+        # Get WCS center, pixel scale, and pixel extent of reference
+        im1 = images[i]
+        [n1,n2]=get_head(im1, ['NAXIS1','NAXIS2'])
+        [[ractr,dcctr]]=impix2wcs(im1,n1/2.0,n2/2.0)
+        if not (check_head(im1,'PIXSCALE')):
+            print 'Error: Please add PIXSCALE keyword to reference image'
+            return 0
+        else:
+            pix=get_head(im1,'PIXSCALE')
+
+        # Add sky background if necessary
+        [tskysub,tskybkg]=get_head(im1,['SKYSUB','SKYBKG'])
+        if (tskysub==1):
+            iraf.imarith(im1,'+',tskybkg,im1)
+            update_head(im1,'SKYSUB',0)
+
+        # Swarp image so N up E left
+        p60swarp(im1, 'N%03i.fits' % (i+1), ractr=ractr, dcctr=dcctr, 
+                 pixscale=pix, size=[n1, n2], backsub=no)
+
+        # Create stamps file
+        if not (stamps==None):
+            refstars=Starlist(stamps)
+            refstars.wcs2pix('N%03i.fits' % (i+1))
+            outf=open('N%03i.stamps' % (i+1), 'w')
+            for star in refstars:
+                outf.write('%.1f\t%.1f\n' % (star.xval, star.yval))
+            outf.close()
+
+        # Photometer reference image
+        iraf.phot('N%03i.fits' % (i+1), coords='N%03i.stamps' % (i+1),
+                  output='N%03i.mag' % (i+1), epadu=ig, exposure='EXPTIME', 
+                  salgorithm='median', annulus=30.0, dannulus=10.0,
+                  weighting='constant', apertures=aperture, zmag=25.0, 
+                  interactive=no)     
+
+        # Create OT file
+        refstars=Starlist(ot)
+        refstars.wcs2pix('N%03i.fits' % (i+1))
+        outf=open('N%03i.coo' % (i+1), 'w')
+        outf.write('%.2f\t%.2f\n' % (refstars[0].xval, refstars[0].yval))
+        outf.close()   
+
+        # Now loop over 'new' images
+        for j in range(i+1, len(images)):
+
+            # Set 'new' image name
+            im2 = images[j]
+
+            # Subtract sky background if necessary
+            [iskysub,iskybkg]=get_head(im2,['SKYSUB','SKYBKG'])
+            if (iskysub==1):
+                iraf.imarith(im2,'+',iskybkg,im2)
+                update_head(im2,'SKYSUB',0)
+        
+            # Copy image
+            iraf.imcopy(im2, 'N%03i-%03i.fits' % ((i+1),(j+1)))
+
+            # Run scamp
+            p60scamp('N%03i-%03i.fits' % ((i+1),(j+1)), refimage='N%03i.fits' % 
+                     (i+1), distortdeg=distortdeg, scthresh1=scthresh1,
+                     scthresh2=scthresh2)
+
+            # Run Swarp
+            p60swarp('N%03i-%03i.fits' % ((i+1),(j+1)), 
+                     'N%03i-%03i.shift.fits' % ((i+1),(j+1)),
+                     ractr=ractr, dcctr=dcctr, pixscale=pix, size=[n1, n2],
+                     backsub=no)
+
+            # Subtract
+            if (ilow==None):
+                ilow2=float(tskybkg) - 5 * math.sqrt(float(tskybkg))
+            else:
+                ilow2=ilow
+            if (tlow==None):
+                tlow2=float(iskybkg) - 5 * math.sqrt(float(iskybkg))
+            else:
+                tlow2=tlow
+            p60hotpants('N%03i.fits' % (i+1), 'N%03i-%03i.shift.fits' % 
+                        ((i+1),(j+1)), 'N%03i-%03i.sub.fits' % ((i+1),(j+1)),
+                        tu=tu, iu=iu, ig=ig, tg=tg, ko=ko, bgo=bgo, nsx=nsx, 
+                        nsy=nsy, radius=radius, tlow=tlow2, ilow=ilow2, 
+                        sthresh=sthresh, ng=ng, stamps="N%03i.stamps" % (i+1),
+                        scimage=yes)
+
+            # Photometer subtracted image
+            iraf.phot('N%03i-%03i.sub.fits' % ((i+1),(j+1)), 
+                      coords='N%03i.coo' % (i+1), 
+                      output='N%03i-%03i.mag' % ((i+1),(j+1)), 
+                      epadu=ig, exposure='EXPTIME', calgorithm='none',
+                      salgorithm='median', annulus=30.0, dannulus=10.0, 
+                      weighting='constant', apertures=aperture, zmag=25.0, 
+                      interactive=no) 
+
+    print "Exiting successfully"
+    return
+
+############################################################################
+
+def p60nn2solve(inlis, outfile):
+
+    '''Solve NN2 matrix equations to extract relative light curve.'''
+
+    images=iraffiles(inlis)
+    images.sort()
+
+    # Create relevant matrices (empty for now)
+    A = matrix(numpy.zeros((len(images),len(images))))
+    E = matrix(numpy.zeros((len(images),len(images))))
+    C = matrix(numpy.zeros((len(images),len(images))))
+    D = matrix(numpy.zeros((len(images),1)))
+    dV = matrix(numpy.zeros((len(images),1)))
+    Em = 0
+
+    # Loop over 'reference' images
+    for i in range(len(images)-1):
+
+        # Calculate zeropoint
+        refstars=Starlist('N001.mag')
+        stars=Starlist('N%03i.mag' % (i+1))
+        stars.pix2wcs('N%03i.fits' % (i+1))
+        stars.wcs2pix('N001.fits')
+        zp,zpu=stars.zeropt(refstars,method='mean',rejout=0)
+        zpmult = pow(10, -zp / 2.5)
+
+        # Now loop over 'new' images
+        for j in range(i+1, len(images)):
+
+            # Retreive relevant information from mag file
+            magfile = open('N%03i-%03i.mag' % ((i+1),(j+1)), 'r')
+            lines=magfile.readlines()
+            sky = float(lines[len(lines)-3].strip().split()[0])
+            flux = float(lines[len(lines)-1].strip().split()[3])
+            npix = float(lines[len(lines)-1].strip().split()[2])
+            #flux += npix * sky
+            skystd = float(lines[len(lines)-3].strip().split()[1])
+            exptime = float(lines[len(lines)-2].strip().split()[0])
+            
+            # Update matrices
+            A[i,j] = -flux * zpmult / exptime
+            A[j,i] = flux * zpmult / exptime
+            E[i,j] = math.sqrt(abs(flux) + npix * math.pow(skystd,2)) * zpmult / exptime
+            E[j,i] = E[i,j]
+            # Only increment Em if subtraction successful
+            if not (E[i,j]==0.0):
+                Em += 1 / math.pow(E[i,j], 2)
+
+    # Populate intermediate matrices
+    Em = 2 * Em / len(images) / (len(images)-1)
+    for k in range(len(images)):
+        for i in range(len(images)):
+            if not (i==k):
+                if (E[i,k]==0):
+                    C[i,k] = Em
+                else:
+                    C[i,k] = -1 / math.pow(E[i,k],2) + Em
+                    D[k] += A[i,k] / math.pow(E[i,k],2)
+            else:
+                C[i,k] = Em
+                for j in range(len(images)):
+                    if (j!=k) and (E[j,k]!=0):
+                        C[i,k] += 1 / math.pow(E[j,k],2) 
+
+    # Solve for light curve and write out results
+    V = linalg.inv(C) * D
+    outf = open(outfile, 'w')
+    for i in range(len(images)):
+        dV[i] = math.sqrt(linalg.inv(C)[i,i])
+        im=images[i]
+        (utshut,obsmjd,exptime)=get_head(im,['UTSHUT','OBSMJD','EXPTIME'])
+        outf.write('%s\t%15.7f%7.2f%10.2f%10.3f\n' % 
+                   (utshut, float(obsmjd), exptime, float(V[i]), float(dV[i])))
+
+    # Chi sq calculation
+    chisq = 0
+    for i in range(len(images)):
+        for j in range(i+1, len(images)):
+            if (E[i,j] != 0.0):
+                chisq += pow( -A[i,j] + V[j] - V[i], 2) / pow(E[i,j], 2)
+    chisq += pow(float(sum(V)), 2) * Em
+    outf.write("Chisq: %.2f\n" % chisq)
+    N = len(images)
+    outf.write("Degrees of freedom: %i" % (N * (N-1) / 2.0 - N + 1))
+    outf.close()
+
+    # Goodbye
+    print "Exiting successfully"
+
+############################################################################
+
+def p60nn2abs(nn2out, sdssout, outfile, filter, refstars='sdss.reg',
+              ig=2.3, aperture=10.0):
+
+    '''Convert relative light curve from NN2 method to absolute light
+    curve using results from subtractions off SDSS frames.'''
+
+    # Need zeropoint for N001 first
+    ref=Starlist(refstars)
+    ref.set_mag(filter)
+    ref.wcs2pix('N001.fits')
+    outf=open('N001.xy','w')
+    for star in ref:
+        outf.write('%10.3f%10.3f\n' % (star.xval, star.yval))
+    outf.close()
+    iraf.phot('N001.fits', coords='N001.xy', output='N001.all.mag', 
+              epadu=ig, exposure='EXPTIME', calgorithm='centroid',
+              salgorithm='median', annulus=30.0, dannulus=10.0, 
+              weighting='constant', apertures=aperture, zmag=25.0, 
+              interactive=no)
+    stars=Starlist('N001.all.mag')
+    zp,zpu=stars.zeropt(ref,method='mean',rejout=1)
+
+    # Open and read files
+    nn2f = open(nn2out, 'r')
+    sdssf = open(sdssout, 'r')
+    outf = open(outfile, 'w')
+    nn2lines = nn2f.readlines()
+    sdsslines = sdssf.readlines()
+
+    # Create empty lists for now
+    ctrs = []
+    mags = []
+
+    # Loop through SDSS file and make sure lines match
+    for sdssline in sdsslines:
+
+        ut=sdssline.strip().split()[0]
+        for j in range(len(nn2lines)):
+
+            if (nn2lines[j].strip().split()[0]==ut):
+
+                # Don't include upper limits and bad subtractions
+                if (float(sdssline.strip().split()[3]) > 0) and \
+	           (float(sdssline.strip().split()[4]) < 10.0):
+                    ctrs.append(float(nn2lines[j].strip().split()[3]))
+                    mags.append(float(sdssline.strip().split()[3]))
+                continue
+
+    # Solve for delta count rate
+    actrs = array(ctrs); amags = array(mags)
+    dctr = pow(10, -(amags - 25.0 - zp) / 2.5) - actrs
+    
+    # Write output file
+    for nn2line in nn2lines:
+
+        nn2temp = nn2line.strip().split()
+        if (not re.match('Chisq',nn2temp[0])) and (not re.match('Degrees',nn2temp[0])):
+
+            newctr = float(nn2temp[3]) + mean(dctr)
+            errctr = sqrt(pow(float(nn2temp[4]),2) + pow(std(dctr)/sqrt(len(dctr)),2))
+            if (newctr < 0) or ((newctr / errctr) < 3.0):
+                mag = -2.5 * log10(5 * errctr) + 25.0 + zp
+                err = 99.00
+            else:
+	        mag = -2.5 * log10(newctr) + 25.0 + zp
+                err = mag - (-2.5 * log10(newctr + errctr) + 25.0 + zp)
+            outf.write('%s\t%15.7f%7.2f%10.3f%10.3f\n' % (nn2temp[0],
+                        float(nn2temp[1]), float(nn2temp[2]), mag, err))
+
+    # Close and quit
+    outf.close()
+    print "Exiting successfully"
+    return
+
+
+############################################################################
+
+def getsdssfits(object, ra, dec, filters=['g', 'r', 'i', 'z'], width=0.15, 
+                pix=0.378, tmpdir='tmp'):
+
+    '''Use Montage to create SDSS templates for given position.'''
+
+    # Remove old files if necessary
+    if os.path.exists("%s.hdr" % object):
+        os.remove("%s.hdr" % object)
+    if os.path.exists(tmpdir):
+        os.system("rm -rf %s" % tmpdir)
+
+    hdrcmd = "mHdr -p %.3f \"%s %s\" %.2f %s.hdr" % (pix, ra, dec, width, 
+              object)
+    hcmd = os.popen(hdrcmd,'r')
+    hlines = hcmd.readlines()
+    if re.search("ERROR", hlines[0]):
+        print "Error constructing SDSS reference: %s" % hlines[0]
+        return -1
+
+    # Loop through filters
+    for filter in filters:
+
+        excmd = "mExec -o %s-%s.fits -f %s.hdr SDSS %s %s" % (object, filter,
+                 object, filter, tmpdir)
+        ecmd = os.popen(excmd, 'r')
+        elines = ecmd.readlines()
+        if re.search("ERROR", elines[0]):
+            print "Error constructing SDSS reference: %s" % elines[0]
+            return -1
+
+    # Return success
+    return 1
+
+############################################################################
+
+def getrefstars(object, ra, dec, width=0.15, pmcut=yes):
+
+    '''Get SDSS reference objects for PSF matching and photometry'''
+
+    sdsscmd = "getsdss.pl -r %.2f " % (width * 40.0)
+    if pmcut:
+        sdsscmd += "-u -f %s-nopm.reg %s %s %s-nopm.txt" % (object,
+                    ra, dec, object)
+    else:
+        sdsscmd += "-b -f %s-allpm.reg %s %s %s-allpm.txt" % (object,
+                    ra, dec, object)
+    scmd = os.popen(sdsscmd, 'r')
+    lines = scmd.readlines()
+
+    if pmcut:
+        stars=Starlist("%s-nopm.reg" % object)
+    else:
+        stars=Starlist("%s-allpm.reg" % object)
+    if len(stars) < 5:
+        print "Error retreiving SDSS reference stars"
+        return -1
+    else:
+        return 1
+
+############################################################################
+
+def p60sdsssub(inlis, refimage, ot, distortdeg=1, scthresh1=3.0, 
+               scthresh2=10.0, tu=50000, iu=50000, ig=2.3, tg=1.0, 
+               stamps=None, nsx=4, nsy=4, ko=0, bgo=0, radius=10, 
+               tlow=0.0, ilow=None, sthresh=5.0, ng=None, aperture=10.0,
+               distfile=P60DISTORT):
+
+    '''P60 Subtraction using SDSS image as reference'''
+
+    images = iraffiles(inlis)
+    images.sort()
+
+    # Get WCS center, pixel scale, and pixel extent of reference
+    [n1,n2]=get_head(refimage, ['NAXIS1','NAXIS2'])
+    [[ractr,dcctr]]=impix2wcs(refimage,n1/2.0,n2/2.0)
+    if not (check_head(refimage,'PIXSCALE')):
+        print 'Error: Please add PIXSCALE keyword to reference image'
+        return 0
+    else:
+        pix=get_head(refimage,'PIXSCALE')
+
+    # Create stamps file
+    if not (stamps==None):
+        refstars=Starlist(stamps)
+        refstars.wcs2pix(refimage)
+        outf=open('ref.stamps', 'w')
+        for star in refstars:
+            outf.write('%.1f\t%.1f\n' % (star.xval, star.yval))
+        outf.close()
+
+    # Create OT file
+    refstars=Starlist(ot)
+    refstars.wcs2pix(refimage)
+    outf=open('ref.coo', 'w')
+    outf.write('%.2f\t%.2f\n' % (refstars[0].xval, refstars[0].yval))
+    outf.close()   
+
+    # First get good distortion correction (if succifient number of images)
+#    if len(images)>5:
+#        p60scampall(images, 't20', 'dist', distortdeg=3, scthresh1=3.0, 
+#                    scthresh2=10.0)
+#    else:
+#        for image in images:
+#            iraf.imcopy(image, '%s.dist.fits' % image.split('.')[0])
+
+    for image in images:
+
+        root=image.split('.')[0]
+
+        # Subtract sky background if necessary
+        [iskysub,iskybkg]=get_head(image,['SKYSUB','SKYBKG'])
+        if (iskysub==1):
+            iraf.imarith(image,'+',iskybkg,image)
+            update_head(image,'SKYSUB',0)
+
+        # First use pre-determined distortion file
+        #shutil.copy(distfile, '%s.head' % root)
+        #p60swarp(image, '%s.dist.fits' % root, backsub=no)
+
+        # Run scamp
+        #p60scamp('%s.dist.fits' % root, refimage=refimage, 
+        p60scamp('%s.fits' % root, refimage=refimage, 
+                 distortdeg=distortdeg, scthresh1=scthresh1, 
+                 scthresh2=scthresh2)
+
+        # Run Swarp
+        #p60swarp('%s.dist.fits' % root, '%s.shift.fits' % root, ractr=ractr, 
+        p60swarp('%s.fits' % root, '%s.shift.fits' % root, ractr=ractr,
+                 dcctr=dcctr, pixscale=pix, size=[n1, n2], backsub=no)
+
+        # Subtract
+        if (ilow==None):
+            ilow2=float(iskybkg) - 5 * math.sqrt(float(iskybkg))
+        else:
+            ilow2=ilow
+        p60hotpants('%s.shift.fits' % root, refimage, '%s.sub.fits' % root,
+                    tu=tu, iu=iu, ig=ig, tg=tg, ko=ko, bgo=bgo, nsx=nsx, 
+                    nsy=nsy, radius=radius, tlow=tlow, ilow=ilow2, 
+                    sthresh=sthresh, ng=ng, stamps="ref.stamps", scimage=no)
+
+        # Photometer subtracted image
+        #iraf.phot('%s.sub.fits' % root, coords='ref.coo', output='%s.mag' % 
+                  #root, epadu=ig, exposure='', calgorithm='none',
+                  #salgorithm='median', annulus=30.0, dannulus=10.0, 
+                  #weighting='constant', apertures=aperture, zmag=25.0, 
+                  #interactive=no) 
+
+    print "Exiting successfully"
+    return
+    
+############################################################################
+
+def p60sdssresults(inlis, outfile, object, filter, reflist, aperture=10.0):
+
+    images=iraffiles(inlis)
+    images.sort()
+
+    outf=open(outfile,'w')
+
+    inf=open('%s.lis' % object, 'w')
+    inf.write('%s-%s.fits' % (object, filter))
+    inf.close()
+    iraf.phot.apertures=aperture
+    refstars=Starlist(reflist)
+    p60photutils.p60zeropt('%s.lis' % object, refstars, 
+                           '%sMAG' % filter[0].upper())
+    stars=Starlist('%s-%s.mag' % (object,filter))
+    zp,zpu = stars.zeropt(refstars,method='mean',rejout=0) 
+    
+    for image in images:
+
+        root=image.split('.')[0]
+        stars=Starlist('%s.mag' % root)
+        [utshut,obsmjd,exptime] = get_head(image, ['UTSHUT','OBSMJD','EXPTIME'])
+        # If well-detected, use mag/err from IRAF file
+        if (len(stars)==1) and (float(stars[0].magu) < 0.2):
+	    snmag = float(stars[0].mag)+zp
+	    snerr = sqrt(pow(float(stars[0].magu),2)+pow(max(zpu,0.03),2))
+        # For weak detection, provide upper limit
+	elif (len(stars)==1):
+            magfile = open("%s.mag" % root)
+            lines=magfile.readlines()
+            sky = float(lines[len(lines)-3].strip().split()[0])
+            flux = float(lines[len(lines)-1].strip().split()[3])
+            npix = float(lines[len(lines)-1].strip().split()[2])
+            skystd = float(lines[len(lines)-3].strip().split()[1])
+            exp = float(lines[len(lines)-2].strip().split()[0])
+	    if (flux > 0):
+	        flxerr = sqrt(flux + npix * pow(skystd,2))
+	        snmag = -2.5 * log10((flux + 5.0 * flxerr) / exp) + 25.0 + zp
+	    else:
+	        flxerr = sqrt(npix) * skystd
+                snmag = -2.5 * log10(5.0 * fluxerr / exp) + 25.0 + zp
+            snerr = 99.00
+        # For bad subtraction, just give -1.0
+	else:
+            snmag = -1.0; snerr = -1.0
+
+        outf.write('%s\t%15.7f%7.2f%10.2f%10.3f\n' % 
+                   (utshut, float(obsmjd), exptime, snmag, snerr))
+
+    outf.close()
+
+############################################################################
+
+def p60scampall(images, prefix, affix, distortdeg=3, scthresh1=3.0, 
+                scthresh2=10.0, cat="SDSS-R6"):
+
+    # Copy over relevant SExtractor files
+    shutil.copy('/usr/local/reduction/scamp/daofind.param', '.')
+    shutil.copy('/usr/local/reduction/scamp/default.nnw', '.')
+    shutil.copy('/usr/local/reduction/scamp/default.conv', '.')
+    shutil.copy('/usr/local/reduction/scamp/default.sex', '.')
+
+    # First extract sources
+    for image in images:
+        root=image.split('.')[0]
+        if not os.path.exists('%s.cat' % root):
+            os.system('sex %s' % image)
+            shutil.move('test.cat', '%s.cat' % root)
+
+    # Run scamp on all images together
+    scampcmd = 'scamp %s*.cat -MATCH N -DISTORT_DEGREES %i -SOLVE_PHOTOM N -SN_THRESHOLDS %f,%f -CHECKPLOT_DEV NULL -ASTREF_CATALOG SDSS-R6 -FWHM_THRESHOLDS 3.0,15.0 -ASTREFMAG_LIMITS 12.0,21.0 -CROSSID_RADIUS 0.8' % (prefix, distortdeg, scthresh1, scthresh2)
+    scmd=os.popen(scampcmd, 'r', -1)
+    scmd.readlines()
+
+    # Apply distortion correction
+    for image in images:
+        root=image.split('.')[0]
+        p60swarp(image, '%s.%s.fits' % (root, affix), backsub=no)
+
+    print 'Exiting successfully'
+    return
+
+###########################################################################
+
+def p60scamp(inlis, refimage=None, distortdeg=3, scthresh1=5.0, 
+             scthresh2=10.0, match=no, cat="SDSS-R6"):
+
+    '''P60 Subtraction using scamp for alignment and HOTPANTS for
+    subtraction.'''
+
+    subimages=iraffiles(inlis)
+
+    # Copy over relevant SExtractor files
+    shutil.copy('/usr/local/reduction/scamp/daofind.param', '.')
+    shutil.copy('/usr/local/reduction/scamp/default.nnw', '.')
+    shutil.copy('/usr/local/reduction/scamp/default.conv', '.')
+    shutil.copy('/usr/local/reduction/scamp/default.sex', '.')
+
+    # Create WCS catalog from reference image (if necessary)
+    if not (refimage==None):
+        refroot,ext = refimage.split('.')
+        if not os.path.exists('%s.cat' % refroot):
+            os.system('sex %s' % refimage)
+            shutil.move('test.cat', '%s.cat' % refroot)
+
+    for image in subimages:
+
+        # Extract image root
+        root=image.split('.')[0]
+
+        # Create FITS-LDAC file from SExtractor
+        os.system('sex %s' % image)
+        shutil.move('test.cat', '%s.cat' % root)
+
+        # Run scamp
+        scampcmd="scamp %s.cat -DISTORT_DEGREES %i -SOLVE_PHOTOM N -SN_THRESHOLDS %f,%f -CHECKPLOT_DEV NULL " % (root, distortdeg, scthresh1, scthresh2)
+        if refimage==None:
+            scampcmd+="-ASTREF_CATALOG %s " % cat
+        else:
+            scampcmd+="-ASTREF_CATALOG FILE -ASTREFCENT_KEYS XWIN_WORLD,YWIN_WORLD -ASTREFCAT_NAME %s.cat -ASTREFERR_KEYS ERRAWIN_WORLD,ERRBWIN_WORLD,ERRTHETAWIN_WORLD -ASTREFMAG_KEY MAG_AUTO" % refroot
+        if match:
+            scampcmd+=" -MATCH Y -POSITION_MAXERR 6.0"
+        else:
+            scampcmd+=" -MATCH N"
+        scmd=os.popen(scampcmd, 'r', -1)
+        scmd.readlines()
+
+    print "Exiting successfully"
+
+
+############################################################################
+
+def p60pois(inlis, refimage, outimage, radius=10.0, iu=50000, tu=50000,
+	    il=0.0, tl=0.0, stamps=None):
+
+    """P60 Subtracting using POIS"""
+
+    subimages=iraffiles(inlis)
+   
+    for image in subimages:
+
+        # Subtract
+        scmd="pois %s %s %s -k %f %f -s %f %f -b %f %f " % \
+	     (refimage, image, outimage, radius, radius, tu, iu, tl, il)
+        if not stamps==None:
+	    scmd+="-S %s" % stamps
+        cmd=os.popen(scmd,'r')
+        rlines=cmd.readlines()
+        cmd.close()
+
+    return
+
+#############################################################################
+
+def p60photsub(ofile, inlis, refimage, refstars, ot, filter):
+   
+    refstars.set_mag(filter)
+    coofile=open('ot.coo','w')
+    ot.wcs2pix(refimage)
+    coofile.write('%10.3f%10.3f\n' % (ot[0].xval, ot[0].yval))
+    coofile.close()
+
+    outfile=open(ofile, 'a+')
+  
+    p60photutils.p60zeropt(inlis, refstars, filter)
+
+    subimage=iraffiles('@%s' % inlis)
+    for image in subimage:
+
+        root,ext=image.split('.')
+        iraf.phot('%s.sub' % root, coo='ot.coo', output='%s.grb' % root,
+                  interac=no)
+
+        stars=Starlist('%s.mag' % root)
+        refstars.wcs2pix(image)
+        zp,zpu=stars.zeropt(refstars,method='mean',rejout=0)
+
+        otstars=Starlist('%s.grb' % root)    
+        
+        [mjd,utshut]=get_head(image,['OBSMJD','UTSHUT'])
+
+        if (len(stars)>0):
+            outfile.write('%s\t%s\t%.3f\t%.3f\t%.3f\t%.3f\n' % (mjd, utshut, otstars[0].mag+zp, sqrt(pow(zpu,2)+pow(otstars[0].magu,2)), otstars[0].magu, zpu))
+
+    outfile.close()
+
+
+#############################################################################
+
+def p60isissub(inlis, refimage, bpm=None, nsx=3, nsy=3, sx=1, sy=1, 
+               sat1=30000, sat2=30000, min=5, ms=130, dback=0, dspace=0, 
+               hms=9, hss=15):
+
+    """P60 Subtracting using POIS"""
+
+    subimages=iraffiles(inlis)
+
+    for image in subimages:
+
+        # Extract image root
+        root,ext=image.split('.')
+
+        # Subtract sky background if necessary
+        [skysub,skybkg]=get_head(image,['SKYSUB','SKYBKG'])
+        if (skysub==1):
+            iraf.imarith(image,'+',skybkg,image)
+            update_head(image,'SKYSUB',0)
+
+        # Remap
+        rcmd="wcsremap -template %s -source %s -outIm %s.shift.fits" % (refimage, image, root)
+        if not bpm==None:
+            rcmd+=" -noiseIn %s" % bpm
+        cmd=os.popen(rcmd,'r')
+        rlines=cmd.readlines()
+        cmd.close()
+
+        # Write the configuration parameters for subtraction
+        pfile = open('default_config', 'w+')
+        pfile.write('nstamps_x          %i\n' % nsx)
+        pfile.write('nstamps_y          %i\n' % nsy)
+        pfile.write('sub_x              %i\n' % sx)
+        pfile.write('sub_y              %i\n' % sy)
+        pfile.write('half_mesh_size     %i\n' % hms)
+        pfile.write('half_stamp_size    %i\n' % hss)
+        pfile.write('deg_bg             %i\n' % dback)
+        pfile.write('saturation1        %f\n' % sat1)
+        pfile.write('saturation2        %f\n' % sat2)
+        pfile.write('pix_min            %i\n' % min)
+        pfile.write('min_stamp_center   %i\n' % ms)
+        pfile.write('ngauss             3\n')
+        pfile.write('deg_gauss1         6\n')
+        pfile.write('deg_gauss2         4\n')
+        pfile.write('deg_gauss3         2\n')
+        pfile.write('sigma_gauss1       0.7\n')
+        pfile.write('sigma_gauss2       1.5\n')
+        pfile.write('sigma_gauss3       2.0\n')
+        pfile.write('deg_spatial        %i\n' % dspace)
+        pfile.write('reverse            0\n')
+        pfile.write('stampsbyxy         0\n')
+        pfile.close()
+
+        # Run the subtraction
+        os.system("$REDUCTION/ISIS/bin/mrj_phot %s.shift.fits %s" \
+         % (root, refimage))
+
+        # Clean up files
+        os.system("mv conv.fits %s.sub.fits" % root)
+        os.system("mv conv0.fits %s.conv.fits" % root)
+
+    # Return
+    print 'Exiting successfully'
+    return
+
+############################################################################
+
+def p60sdss_apphot(inlis, ot, refstars, filt, refimage, outfile):
+
+	"""Run aperture photometry on new images (to get zeropoint) and 
+	subtraction images (to get transient)."""
+	
+	images = iraffiles(inlis)
+	otlis = Starlist(ot)
+	reflis = Starlist(refstars)
+	reflis.set_mag("%sMAG" % filt)
+	reflis.wcs2pix(refimage)
+	results = open(outfile, "w")
+	
+	# Create text file with pixel coordinates of reference stars
+	outf = open("photcal.coo", "w")
+	for s in reflis:
+		outf.write("%10.3f%10.3f\n" % (s.xval, s.yval))
+	outf.close()
+		
+	for im in images:
+	
+		root = im.split(".")[0]
+		
+		# Set aperture based on seeing value
+		photap = 1.5 * float(get_head(im, "SEEPIX"))
+		
+		# For calibrator stars, allow centroiding
+		iraf.datapars.exposure=""
+		iraf.centerpars.calgorithm="centroid"
+		iraf.fitskypars.salgorithm="median"
+		iraf.fitskypars.annulus=30.0
+		iraf.fitskypars.dannulus=10.0
+		iraf.photpars.weighting="gauss"
+		iraf.photpars.apertures=photap
+		iraf.photpars.zmag=25.0
+		iraf.phot("%s.shift.fits" % root, coords="photcal.coo",
+				  output="%s.mag" % root, interactive=no, verify=no, 
+				  update=no)
+				  
+		# For transient, I guess allow centroiding as well (for now)
+		iraf.phot("%s.sub.fits" % root, coords="ref.coo", 
+				  output="%s.ot" % root, interactive=no, verify=no, 
+				  update=no)
+
+		mjd, exp = get_head(im, ["OBSMJD", "EXPTIME"])
+		
+		stars = Starlist("%s.mag" % root)
+		zp, zpu = stars.zeropt(reflis, method="mean", rejout=1)
+		
+		transient = Starlist("%s.ot" % root)
+		if (len(transient)==1):
+			otmag = transient[0].mag + zp
+			otmagu = transient[0].magu
+		else:
+			otmag = otmagu = 99.0
+		
+		results.write("%15.5f%10.2f%10.3f%10.3f%10.3f\n" % \
+				      (float(mjd), exp, otmag, otmagu, zpu))
+		
+	results.close()
+	
+	return
+	
+##########################################################################
+
+
+

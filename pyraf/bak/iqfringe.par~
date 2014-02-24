@@ -1,0 +1,12 @@
+inlist,s,a,"",,,"Images to use for fringe"
+fringe,s,a,"",,,"Name of output fringe image"
+combine,s,h,"average",average|median,,"Method of combination"
+fringeamp,r,h,0.25,0.,,"Maximum amplitude of fringes, relative to sky"
+skykey,s,h,"SKYBKG",,,"Sky value header keyword"
+subkey,s,h,"SKYSUB",,,"Sky subtraction status header keyword"
+bmpkey,s,h,"MASKNAME",,,"Keyword for pixel mask (flags objects)"
+masktype,s,h,"goodvalue",none|goodvalue|badvalue|goodbits|badbits,,"Type of mask (to exclude objects)"
+maskvalue,i,h,0,,,"Appropriate value of mask to use"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

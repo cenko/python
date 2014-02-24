@@ -1,0 +1,10 @@
+objkey=OBJECT 
+filtkey=REDFILT
+nitekey=DATE-OBS
+timekey=MJD-OBS
+expkey=EXPOSURE   
+coaddkey=GRATING
+rakey=RA      
+deckey=DEC    
+rotkey=ROTPOSN
+pixscale=0.215

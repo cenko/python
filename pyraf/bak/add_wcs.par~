@@ -1,0 +1,4 @@
+inlist,s,a,"",,,"Input image(s)"
+instrument,s,h,"p60new",nirc|lris|esi|p60ccd|p60new|c40ir|cosmicR|p60ir|emmi|c40ccd|wirc|panic,,"Instrument"
+binkey,s,h,"ccdsum",,,"On-chip binning keyword"
+mode,s,h,"q",,,

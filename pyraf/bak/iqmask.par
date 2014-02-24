@@ -1,0 +1,7 @@
+inlist,s,a,"",,,"List of target images"
+mask,s,h,"!BPM",,,"Bad pixel mask name or header keyword"
+method,s,h,"constant",constant|fixpix|image,,"Method to use in masking"
+value,s,h,"0.0",,,"Value for constant mask; filename or !keyword for image mask"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

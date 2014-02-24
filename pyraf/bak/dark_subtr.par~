@@ -1,0 +1,6 @@
+inlist,s,a,"",,,"File containing list of images and dark frames"
+outpfx,s,h,"d",,,"Prefix for output files"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+logfile,s,h,"STDOUT",,,"Output log file (if verbose)"
+mode,s,h,"q",,,

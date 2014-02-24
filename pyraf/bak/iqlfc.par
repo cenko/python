@@ -1,0 +1,4 @@
+inpat,s,a,"",,,"Glob pattern for images to analyze"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

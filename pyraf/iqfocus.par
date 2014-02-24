@@ -1,0 +1,13 @@
+infile,s,a,"",,,"Image to analyze"
+xvals,s,a,"",,,"X-values of star images, separated by commas"
+yvals,s,a,"",,,"Y-values of star images, separated by commas"
+focusvals,s,a,"",,,"Focus values for star images, separated by commas"
+method,s,h,"acorr",acorr|radprof,,"Method of seeing calculation"
+boxsize,i,h,32,4,,"Size of extraction box for acorr"
+focuskey,s,h,"BESTFOC",,,"Keyword for recording best focus value"
+seekey,s,h,"SEEING",,,"Keyword for recording best seeing value"
+fseekey,s,h,"FOCSEE",,,"Keyword to use to record seeing sequence"
+update,b,h,yes,,,"Update image header with results?"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

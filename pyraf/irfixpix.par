@@ -1,0 +1,7 @@
+inlist,s,a,"",,,"List of input files"
+outpfx,s,h,"b",,,"Prefix for output files"
+fake,b,h,no,,,"Fake processing?"
+bpmkey,s,h,"BPM",,,"Header keyword for BPM file"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

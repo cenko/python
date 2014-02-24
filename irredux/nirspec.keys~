@@ -1,0 +1,10 @@
+objkey="OBJECT" 
+filtkey="FILTER"
+nitekey="DATE-OBS"
+timekey="MJD-OBS"
+expkey="TINT"   
+coaddkey="FRMCOADD"
+rakey="RA"      
+deckey="DEC"    
+rotkey="ROTPOSN"
+pixscale=0.15

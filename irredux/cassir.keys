@@ -1,0 +1,10 @@
+objkey=OBJECT
+filtkey=FILTER
+nitekey=DATE-OBS
+timekey=UT
+expkey=TINT01
+coaddkey=FRAMES01
+rakey=RA
+deckey=DEC
+rotkey=F70ROT
+pixscale=0.13

@@ -1,0 +1,12 @@
+inlist,s,a,"",,,"Images to analyze"
+catmag,s,a,"",,,"Filter magnitude to use as reference"
+starfile,s,h,"!STARFILE",,,"Starfile name or !keyword"
+catalog,s,h,"!CATALOG",,,"Reference catalog name or !keyword"
+pixtol,r,h,3.0,0.01,,"Maximum pixel difference to accept as match"
+useflags,b,h,yes,,,"Ignore stars with nonzero flags?"
+maxnum,i,h,50,0,,"Maximum number of stars to match, or zero for all"
+zptkey,s,h,"ZEROPT",,,"Zero point header keyword"
+zpukey,s,h,"ZEROPTU",,,"Zero point uncertainty header keyword"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

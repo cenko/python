@@ -1,0 +1,10 @@
+inlist,s,a,"",,,"Images to analyze"
+sub,b,a,yes,,,"Subtract sky (yes) or add sky (no)?"
+statsec,s,h,"",,,"Image statistics section"
+skykey,s,h,"SKYBKG",,,"Sky value header keyword"
+subkey,s,h,"SKYSUB",,,"Sky subtraction status header keyword"
+minlim,b,h,no,,,"Ignore data with values below minval?"
+minval,r,h,-90000.,,,"Minimum value (cutoff) for minlim"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

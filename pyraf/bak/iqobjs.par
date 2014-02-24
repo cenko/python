@@ -1,0 +1,13 @@
+inlist,s,a,"",,,"Images to analyze"
+sigma,r,a,2.0,0.,,"Sigma threshold for object detection"
+satval,r,a,30000.,0.,,"CCD saturation value (before sky subtraction)"
+skyval,s,h,"!SKYBKG",,,"If sky-subtracted, sky value or !KEYWORD"
+masksfx,s,h,"mask",,,"Suffix for output object mask image"
+zeropt,r,h,25.0,0.,,"Photometric zero-point setting"
+wtimage,s,h,"!FLATNAME",,,"Weight image or !keyword (blank=none)"
+wtcut,r,h,0.1,0.,,"Minimum useful weight value"
+minlim,b,h,no,,,"Zero data in border regions?"
+minval,r,h,-90000.,,,"Minimum value (cutoff) for minlim"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

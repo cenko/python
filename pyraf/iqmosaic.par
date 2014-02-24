@@ -1,0 +1,10 @@
+inlist,s,a,"",,,"List of images to process"
+ccdproc,pset,h,"",,,"Parameters for CCDPROC"
+outpfx,s,h,"p",,,"Prefix for output (processed) files"
+biassec,s,h,"!BIASSEC",,,"Bias section or header keyword"
+trimsec,s,h,"!TRIMSEC",,,"Trim section or header keyword"
+joinkeys,s,h,"DETSEC",,,"Region-style keywords to update by joining"
+splitkeys,s,h,"AMPSEC,CCDSEC,TRIM,OVERSCAN,CCDPROC",,,"Keywords to update by splitting"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

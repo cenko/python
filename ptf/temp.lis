@@ -1,0 +1,2497 @@
+PTF12lfv  11.602817 29.630501  2000.00
+    Priority 87908.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 2.39 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0002
+    Keyword P60PRNM 'PTF: Transients in the Local Universe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kasliwal'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure gpr 120.00 1
+PTF12jhu  114.267699 65.596222  2000.00
+    Priority 87871.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 10.10 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0002
+    Keyword P60PRNM 'PTF: Transients in the Local Universe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kasliwal'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure gpr 180.00 1
+PTF10aaxf  145.722441 9.495399  2000.00
+    Priority 86913.72
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 9.04 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0002
+    Keyword P60PRNM 'PTF: Transients in the Local Universe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kasliwal'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+    Exposure rpr 60.00 1
+    Exposure zpr 120.00 1
+    Exposure gpr 60.00 1
+PTF11iqb  8.520150 -9.704979  2000.00
+    Priority 86757.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 0.42 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0002
+    Keyword P60PRNM 'PTF: Transients in the Local Universe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kasliwal'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 180.00 1
+    Exposure gpr 120.00 1
+PTF12mue  49.712565 -11.820166  2000.00
+    Priority 81539.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.02 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0006
+    Keyword P60PRNM 'PTF: Luminous Supernovae'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Quimby'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12mkp  127.146061 65.182162  2000.00
+    Priority 81537.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 10.96 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0006
+    Keyword P60PRNM 'PTF: Luminous Supernovae'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Quimby'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+    Exposure rpr 60.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12mhg  132.192806 46.973967  2000.00
+    Priority 81535.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 11.10 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 180.00 1
+    Exposure B 120.00 1
+    Exposure zpr 120.00 1
+    Exposure gpr 180.00 1
+PTF12ltv  120.549369 38.950209  2000.00
+    Priority 81522.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 9.99 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure zpr 120.00 1
+    Exposure gpr 180.00 1
+PTF12mfx  107.036571 48.863580  2000.00
+    Priority 81522.65
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 9.51 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 180.00 1
+    Exposure B 180.00 1
+    Exposure gpr 180.00 1
+PTF12ljg  123.204004 46.283435  2000.00
+    Priority 81521.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 10.47 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12ldy  356.295971 23.155210  2000.00
+    Priority 81508.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 1.13 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 180.00 1
+PTF12kth  31.842257 -4.362800  2000.00
+    Priority 81505.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 2.28 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 180.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12khj  356.792307 -13.249365  2000.00
+    Priority 81493.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 24.00 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12jfv  357.625672 35.886603  2000.00
+    Priority 81471.64
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 1.70 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 180.00 1
+    Exposure B 180.00 1
+    Exposure gpr 180.00 1
+PTF12kso  69.045358 -5.081473  2000.00
+    Priority 81467.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 4.72 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 180.00 1
+    Exposure gpr 180.00 1
+PTF12hni  337.982759 -6.796941  2000.00
+    Priority 81415.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 24.00 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12gcx  236.072156 9.961977  2000.00
+    Priority 81354.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.89 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 120.00 1
+    Exposure B 60.00 1
+    Exposure gpr 120.00 1
+PTF12efc  224.144733 39.684751  2000.00
+    Priority 81329.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 5.84 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 180.00 1
+    Exposure B 180.00 1
+    Exposure gpr 180.00 1
+PTF12eje  231.995653 56.655313  2000.00
+    Priority 81328.69
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 5.81 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 60.00 1
+    Exposure B 60.00 1
+    Exposure gpr 120.00 1
+PTF12th  72.616051 -3.489879  2000.00
+    Priority 81200.69
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 5.04 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+    Exposure rpr 180.00 1
+    Exposure B 60.00 1
+    Exposure gpr 60.00 1
+PTF12mxx  337.569505 27.972761  2000.00
+    Priority 81093.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 0.07 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0006
+    Keyword P60PRNM 'PTF: Luminous Supernovae'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Quimby'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12izy  38.165311 0.616699  2000.00
+    Priority 80742.68
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 2.96 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 60.00 1
+PTF11auf  199.082324 46.921552  2000.00
+    Priority 80473.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 170.00 0.10
+    Weight night 7.81 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure zpr 120.00 1
+PTF12mds  28.186326 -3.399649  2000.00
+    Priority 65905.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 2.09 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0002
+    Keyword P60PRNM 'PTF: Transients in the Local Universe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kasliwal'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure gpr 120.00 1
+PTF12mgk  108.563678 76.123701  2000.00
+    Priority 61137.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 9.73 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12mca  125.281256 60.850613  2000.00
+    Priority 61135.70
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 10.83 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+    Exposure rpr 60.00 1
+    Exposure B 60.00 1
+    Exposure gpr 60.00 1
+PTF12krf  342.069479 24.149514  2000.00
+    Priority 61104.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 0.22 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 180.00 1
+PTF12ktu  66.585766 -10.103465  2000.00
+    Priority 61103.69
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 4.25 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 60.00 1
+PTF12khf  60.103513 -10.571711  2000.00
+    Priority 61101.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.79 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 180.00 1
+PTF12ksy  62.942065 -12.466902  2000.00
+    Priority 61098.69
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.86 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+    Exposure rpr 60.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12lpo  153.449789 3.434043  2000.00
+    Priority 61097.69
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 8.49 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+    Exposure rpr 60.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12mau  21.879912 14.818746  2000.00
+    Priority 61095.69
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 2.51 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 180.00 1
+    Exposure B 60.00 1
+    Exposure gpr 120.00 1
+PTF12jxe  141.158864 49.359585  2000.00
+    Priority 61094.69
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 11.35 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+    Exposure rpr 60.00 1
+    Exposure B 60.00 1
+    Exposure gpr 60.00 1
+PTF12jut  128.188553 57.542650  2000.00
+    Priority 61094.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 11.02 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 180.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12jvp  127.792184 50.185607  2000.00
+    Priority 61093.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 10.95 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 180.00 1
+    Exposure B 120.00 1
+PTF12jvy  116.271116 45.027045  2000.00
+    Priority 61093.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 9.96 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 180.00 1
+    Exposure B 120.00 1
+PTF12jqj  122.713597 65.668977  2000.00
+    Priority 61078.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 10.66 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 180.00 1
+    Exposure B 120.00 1
+PTF12jje  13.093499 21.152503  2000.00
+    Priority 61074.69
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 2.17 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 60.00 1
+    Exposure gpr 180.00 1
+PTF12jiv  20.061907 20.235952  2000.00
+    Priority 61074.68
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 2.60 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+    Exposure rpr 60.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12jjg  24.996763 21.483025  2000.00
+    Priority 61074.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 2.98 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12jgi  354.583124 31.960972  2000.00
+    Priority 61071.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 1.35 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 180.00 1
+    Exposure gpr 180.00 1
+PTF12iqw  36.210494 16.181394  2000.00
+    Priority 61052.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.51 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 180.00 1
+    Exposure gpr 120.00 1
+PTF12iif  355.933944 -14.710639  2000.00
+    Priority 61037.69
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 24.00 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+    Exposure rpr 60.00 1
+    Exposure B 60.00 1
+    Exposure gpr 60.00 1
+PTF12iet  334.167497 -1.140121  2000.00
+    Priority 61034.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 24.00 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 180.00 1
+    Exposure B 180.00 1
+    Exposure gpr 120.00 1
+PTF12hxz  34.477757 0.662792  2000.00
+    Priority 61028.65
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 2.72 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 180.00 1
+    Exposure B 180.00 1
+    Exposure gpr 180.00 1
+PTF12gxj  233.747761 5.808832  2000.00
+    Priority 60997.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.86 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12hsx  13.763866 42.331115  2000.00
+    Priority 60989.68
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.03 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure zpr 120.00 1
+    Exposure gpr 60.00 1
+PTF12dke  237.193017 56.521977  2000.00
+    Priority 60907.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 5.47 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 180.00 1
+    Exposure B 120.00 1
+    Exposure gpr 180.00 1
+PTF12bup  209.060862 12.804490  2000.00
+    Priority 60868.73
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 5.80 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 60.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12lvj  188.514505 13.010250  2000.00
+    Priority 60823.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.18 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 60.00 1
+    Exposure B 60.00 1
+    Exposure gpr 120.00 1
+PTF12xv  70.204311 6.519925  2000.00
+    Priority 60813.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 5.37 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 180.00 1
+    Exposure gpr 120.00 1
+PTF12ne  27.448971 31.747341  2000.00
+    Priority 60801.70
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.53 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 180.00 1
+    Exposure B 60.00 1
+    Exposure gpr 180.00 1
+PTF12kph  24.817381 -7.558031  2000.00
+    Priority 60349.69
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 1.64 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+    Exposure rpr 60.00 1
+    Exposure B 60.00 1
+    Exposure zpr 120.00 1
+    Exposure gpr 60.00 1
+PTF12mav  9.414744 10.357988  2000.00
+    Priority 60286.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 1.49 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12frn  245.500659 32.160810  2000.00
+    Priority 60221.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 4.13 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 180.00 1
+    Exposure B 120.00 1
+    Exposure gpr 180.00 1
+PTF10dvb  259.051044 31.793335  2000.00
+    Priority 60141.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.22 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 60.00 1
+PTF12gvr  241.305502 30.468617  2000.00
+    Priority 60141.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 4.35 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12lvt  159.666983 -28.568414  2000.00
+    Priority 60140.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.36 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12lvs  188.796428 -0.221254  2000.00
+    Priority 60119.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 6.56 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 60.00 1
+    Exposure B 120.00 1
+    Exposure gpr 120.00 1
+PTF12jxd  144.374230 23.163933  2000.00
+    Priority 60074.67
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 10.13 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0012
+    Keyword P60PRNM 'PTF: Core-collapse SNe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Gal-Yam'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 180.00 1
+    Exposure B 60.00 1
+    Exposure gpr 180.00 1
+PTF13at  177.732983 21.195329  2000.00
+    Priority 55823.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 8.22 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13av  198.253836 29.898101  2000.00
+    Priority 55822.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.18 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13au  177.318705 44.905379  2000.00
+    Priority 55822.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 9.16 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13az  201.543214 32.134944  2000.00
+    Priority 55822.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.05 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13ax  182.415447 16.203931  2000.00
+    Priority 55822.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.71 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13ay  182.981068 16.082814  2000.00
+    Priority 55822.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.67 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13bf  239.291224 18.979557  2000.00
+    Priority 55822.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 4.04 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13be  231.316459 41.600930  2000.00
+    Priority 55822.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 5.44 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13bc  216.645309 25.571776  2000.00
+    Priority 55822.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 5.80 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13bb  185.260398 15.913111  2000.00
+    Priority 55822.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.51 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13ba  178.096103 52.067003  2000.00
+    Priority 55822.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 9.39 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13aw  184.886131 38.040568  2000.00
+    Priority 55821.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 8.38 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13ag  191.358473 12.103198  2000.00
+    Priority 55821.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 6.95 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13ac  188.734833 4.570003  2000.00
+    Priority 55821.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 6.80 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13an  183.563984 15.535996  2000.00
+    Priority 55821.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.61 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13am  187.938556 9.355127  2000.00
+    Priority 55821.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.06 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13ak  189.589755 14.571773  2000.00
+    Priority 55821.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.17 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13ai  193.565567 9.440385  2000.00
+    Priority 55821.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 6.69 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13ae  186.843499 17.863007  2000.00
+    Priority 55821.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.48 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13al  191.215845 9.268004  2000.00
+    Priority 55821.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 6.84 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13af  205.171451 32.563186  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 6.83 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13ad  243.513401 14.281995  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.57 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13aa  199.186239 31.092138  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.17 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13ao  177.332611 42.968163  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 9.08 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13aj  219.259017 39.311027  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 6.15 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13q  195.686450 33.885846  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.51 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13r  228.307256 40.537975  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 5.60 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13x  200.048714 42.787208  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.57 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13y  248.142057 39.131277  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 4.23 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13z  240.500523 21.244847  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 4.05 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13t  229.642817 55.140151  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 5.97 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13u  239.713357 18.231426  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 3.98 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13v  204.676468 32.306419  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 6.85 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13w  194.895213 36.736965  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.67 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13p  246.224959 41.050813  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 4.43 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13l  247.844698 39.167891  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 4.25 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13m  170.368059 13.482958  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 8.40 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13n  204.047680 29.394085  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 6.78 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13o  194.638166 27.364555  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.33 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13i  218.407306 35.964542  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 6.08 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13j  211.859709 54.594464  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.15 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13k  207.186849 41.712320  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.05 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13h  155.398497 20.938817  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 9.69 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13f  247.359098 38.419763  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 4.25 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13g  178.339258 20.752184  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 8.16 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13a  177.517108 21.279345  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 8.23 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13b  182.298787 43.416931  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 8.77 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13c  179.169836 32.630904  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 8.55 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13d  200.441532 31.238382  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.09 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13e  183.435126 28.648805  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 8.12 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13bd  227.863594 41.090203  2000.00
+    Priority 55818.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 5.65 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13as  187.024868 14.540863  2000.00
+    Priority 55196.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.34 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF13s  203.222074 35.959372  2000.00
+    Priority 54850.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 7.08 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0001
+    Keyword P60PRNM 'PTF: P60 Transient Vetting'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kulkarni'
+    Property NOFOCUS 1
+    Exposure rpr 120.00 1
+PTF12lid  67.186870 -12.504787  2000.00
+    Priority 43920.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 4.13 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0002
+    Keyword P60PRNM 'PTF: Transients in the Local Universe'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Kasliwal'
+    Property NOFOCUS 1
+    Exposure ipr 120.00 1
+    Exposure rpr 120.00 1
+    Exposure gpr 120.00 1
+PTF12mrq  123.499847 55.678118  2000.00
+    Priority 40735.65
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 2.50 0.25
+    Weight moondeg 150.00 0.10
+    Weight night 10.71 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0006
+    Keyword P60PRNM 'PTF: Luminous Supernovae'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Quimby'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 1
+    Exposure rpr 180.00 1
+    Exposure B 120.00 1
+    Exposure gpr 180.00 1
+PTF10guz  192.345026 -6.397576  2000.00
+    Priority 39788.66
+    Repeat 1
+    Obsnum 0
+    Obstime 0.000000
+    MJDStart 56330.148889
+    Weight airmass 1.70 0.25
+    Weight moondeg 120.00 0.10
+    Weight night 4.81 0.50
+    Timing monitor 12.00
+    Offset 180.0 -180.0
+    Dither 60.0 60.0
+    Binning 1 1
+    ROI 1025 1 1024 2048
+    Keyword P60PRID 2009B-I0018
+    Keyword P60PRNM 'PTF: GALEX Seredipitous Observations'
+    Keyword OBJTYPE Transient
+    Keyword P60PRPI 'Ofek'
+    Property NOFOCUS 1
+    Exposure ipr 180.00 3
+    Exposure rpr 180.00 3

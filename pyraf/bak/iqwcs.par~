@@ -1,0 +1,13 @@
+inlist,s,a,"",,,"Images to analyze"
+objkey,s,h,"OBJECT",,,"Object name header keyword"
+rakey,s,h,"RA",,,"Right ascension header keyword (no decimal hours!)"
+deckey,s,h,"DEC",,,"Declination header keyword"
+pixscl,s,h,"!PIXSCALE",,,"Pixel scale in arcsec or header keyword"
+pixtol,r,h,0.05,0,1,"Maximum scale uncertainty"
+starfile,s,h,"!STARFILE",,,"Starfile name, .extension or header !keyword"
+catalog,s,h,"WEB",,,"Catalog name or retrieval method (WEB|LOCAL)"
+ubhost,s,h,"kronos",,,"Catalog hostname for local retrieval"
+forcefit,b,h,no,,,"Force new WCS fit over previous fit(s)?"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

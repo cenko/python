@@ -1,0 +1,403 @@
+#!/usr/bin/env python
+
+# Global packages
+import pyraf
+from pyraf import iraf
+import copy, os, shutil, glob, sys, string, re, math
+import getopt
+import pyfits
+import numarray
+import time
+from types import *
+
+# Local packages
+import iqcals
+import add_wcs
+import iqflatten
+import iqobjs
+
+# Shortcuts
+yes=iraf.yes
+no=iraf.no
+INDEF=iraf.INDEF
+hedit=iraf.hedit
+imgets=iraf.imgets
+
+pardir="/home/cenko/python/pyraf/"
+
+globclob=yes
+globver=yes
+
+######################################################################
+
+def iqp60(inpat,endhow="never",endwhen="",
+          clobber=globclob,verbose=globver):
+
+    """ intelligent processing of P60 data files """
+
+    # Necessary packages
+    if not iraf.imred._loaded:
+        iraf.imred()
+    if not iraf.ccdred._loaded:
+        iraf.ccdred()
+    if not iraf.images._loaded:
+        iraf.images()
+    if not iraf.imutil._loaded:
+        iraf.imutil()
+
+    # Defaults
+    twait=30
+    reduced={}
+    filtkey="FILTER"
+    trimsec="[1:1200,1:3000]"
+    biaskey="IMGTYPE"
+    biasre="BIAS"
+    biasname="Bias.fits"
+    biaspfx="b"
+    flatkey="IMGTYPE"
+    flatre="DOMEFLAT"
+    flatpre="Flat-"
+    flatpfx="f"
+    focuskey="IMGTYPE"
+    focusre="FOCUS"
+    statsec=""
+    sigma=2.0
+    satval=50000.0
+    masksfx="mask"
+    pix=0.378
+
+    # Parse end-condition "time"
+    if endhow=="time":
+        re1=re.search("^(\d+):(\d+)",endwhen)
+        if re1:
+            tnow=time.gmtime()
+            # Force UT calculation w/ ignoring of DST issues
+            reftime=time.mktime([tnow[0],tnow[1],tnow[2],
+                                 int(re1.group(1)),int(re1.group(2)),0,
+                                 tnow[6],tnow[7],0]) - time.timezone
+            if reftime<time.time():
+                reftime+=86400
+            if verbose:
+                print "Running until %s" % \
+                      time.strftime("%d %b %H:%M",time.gmtime(reftime))
+        else:
+            print "Failed to parse %s as UT time" % endwhen
+            print "Running until stopped..."
+            endhow="never"
+
+    # Setup ccdproc options
+    ccdproc=iraf.ccdred.ccdproc
+    ccdproc.ccdtype=""
+    ccdproc.noproc=no
+    ccdproc.fixpix=no
+    ccdproc.oversca=no
+    ccdproc.trim=yes
+    ccdproc.zerocor=yes
+    ccdproc.darkcor=no
+    ccdproc.flatcor=no
+    ccdproc.illumco=no
+    ccdproc.fringec=no
+    ccdproc.readaxi="line"
+    ccdproc.trimsec=trimsec
+    ccdproc.zero=biasname
+    ccdproc.dark=""
+
+    # Create calibration files, if necessary
+    if not os.path.exists(biasname):
+        iraf.iqcals(inpat,dobias=yes,biaskey=biaskey,
+                    biasre=biasre,biasname=biasname,
+                    doflats=yes,flatkey=flatkey,flatre=flatre,
+                    filtkey=filtkey,flatpre=flatpre,
+                    dobpm=no,mosaic=no,clobber=globclob,verbose=globver)
+        
+    # Basic sanity checks
+    check_exist(biasname,"r")
+
+    # Identify focus files up front
+    allfiles=glob.glob(inpat)
+    focusfiles=[]
+    for image in allfiles:
+        focusval=get_head(image,focuskey)
+        if re.search(focusre,focusval,re.I):
+            focusfiles.append(image)
+    
+    # Big Loop
+    done=no
+    while not done:
+
+        # Set proc tag to 0
+        proctag = 0
+
+        # Parse inputs
+        allfiles=glob.glob(inpat)
+
+        newfiles=[]
+        for image in allfiles:
+            if not reduced.has_key(image):
+                # Exclude Bias & Flats
+                if re.search(biasname,image,re.I) or \
+                   re.search(flatpre,image,re.I):
+                    reduced[image]=yes
+                    continue
+                # Exclude calibration files
+                biasval=get_head(image,biaskey)
+                if re.search(biasre,biasval,re.I):
+                    reduced[image]=yes
+                    continue
+                flatval=get_head(image,flatkey)
+                if re.search(flatre,flatval,re.I):
+                    reduced[image]=yes
+                    continue
+                # Queue file for processing
+                newfiles.append(image)
+
+        for image in newfiles:
+
+            time.sleep(10.0)
+            proctag = 1
+
+            if verbose:
+                print "Reducing new image %s" % image
+
+            # Bias subtraction
+            image1=biaspfx+image
+            s1=ccdproc(image,output=image1,Stdout=1)
+
+            # Flatfielding
+            filt=get_head(image1,filtkey)
+            flatname=flatpre+filt+".fits"
+            check_exist(flatname,"r")
+            iraf.iqflatten(image1,flatname,outpfx=flatpfx,
+                           normflat=yes,statsec=statsec,vignflat=no,
+                           clobber=yes,verbose=no)
+            image2=flatpfx+image1
+
+            # Defringing happens here...
+
+            # Rudimentary WCS
+            iraf.add_wcs(image2,instrument="c40ccd")
+
+            # Object-detection
+            iraf.iqobjs(image2,sigma,satval,masksfx=masksfx,
+                        wtimage="none",clobber=yes,verbose=no)
+
+            # Refine WCS here
+            ############
+
+            # Clean up
+            check_exist(image1,"w")
+
+            # Done with processing
+            reduced[image]=yes
+
+            # If all focus images have been processed, choose best focus
+            #for ffile in focusfiles:
+                #if not reduced[ffile]:
+                    #ffnotdone=1
+
+        # Move processed files to proc directory
+        if (proctag == 1):
+                os.system('mv ./fbs* ../proc/')
+
+        # Test end-conditions
+        if endhow=="never":
+            done=no
+        elif endhow=="once":
+            done=yes
+        elif endhow=="time":
+            if time.time()>reftime:
+                done=yes
+        
+        # Wait a little while
+        if not done:
+            time.sleep(twait)
+
+######################################################################
+######################################################################
+
+def check_exist(filename, status, clobber=globclob):
+
+    """ check_exist(filename, status, clobber=yes)
+    checks to see if filename exists
+    if status==r, must exist, otherwise prints error and exits
+    if status==w, if exists and clobber=no then prints error and exits
+    else deletes
+    """     
+
+    if (status == "r"):
+        # check to see if it exists for reading
+        # (i.e. must be present)
+        if (not (os.path.exists(filename))):
+            print "Couldn't open input file: %s" % filename
+            sys.exit(1)
+    else:
+        # check to see if it exists for writing
+        # (i.e. must not exist or clobber=yes)
+        if (os.path.exists(filename)):
+            if (clobber):
+                os.remove(filename)
+            else:
+                print "File %s already exists and clobber=no" % filename
+
+######################################################################
+
+def getlines(filename,blanks=no):
+
+    """ lines=getlines(filename,blanks)
+    opens file filename
+    reads lines and strips off whitespace
+    if (blanks==1), will return fully blank lines
+    otherwise excises
+    """
+
+    infile=open(filename)
+    lines=infile.readlines()
+    infile.close()
+    lines2=[]
+
+    if (blanks==1):
+        return lines
+    
+    for i in range(0,len(lines)):
+        if (re.search("\S+",lines[i])):
+            lines2.append(lines[i].rstrip())
+
+    return lines2
+
+######################################################################
+
+def check_head(file,key,extn=0):
+
+    check_exist(file,"r")
+
+    try:
+        fimg=pyfits.open(file)
+        if extn>len(fimg):
+            print "Requested extension [%d] does not exist" % extn
+            out=no
+
+        head=fimg[extn].header
+        out=head.has_key(key)
+        fimg.close()
+
+    except:
+        print "Error reading header of %s" % file
+        out=no
+
+    return out
+
+######################################################################
+
+def get_head(file,keys,extn=0):
+
+    """ reads one or more header keywords from a FITS file
+        using PyFITS """
+
+    vals=[]
+    check_exist(file,"r")
+
+    try:
+        fimg=pyfits.open(file)
+        if extn>len(fimg):
+            print "Requested extension [%d] does not exist" % extn
+            vals=[""]*len(keys)
+            return vals
+
+        head=fimg[extn].header
+        if type(keys)==StringType:
+            key=keys
+            if head.has_key(key):
+                vals.append(head[key])
+            else:
+                print "Error reading keyword %s from %s" % (key,file)
+                vals.append("")
+        elif type(keys)==ListType:
+            for key in keys:
+                if head.has_key(key):
+                    vals.append(head[key])
+                else:
+                    print "Error reading keyword %s from %s" % (key,file)
+                    vals.append("")
+        else:
+            print "Bad variable type for keys"
+        fimg.close()
+    except:
+        print "Error reading header of %s" % file
+        vals=[""]*len(keys)
+
+    if len(vals)==1:
+        vals=vals[0]
+
+    return vals
+
+######################################################################
+
+def update_head(file,key,value,comment=""):
+
+    """ updates a single header keyword using pyfits
+    """
+
+    check_exist(file,"r")
+    try:
+        inf=pyfits.open(file,"update")
+        if (comment != ""):
+            inf[0].header.update(key,value,comment=comment)
+        else:
+            inf[0].header.update(key,value)
+        inf.close()
+    except:
+        print "Error updating header of %s" % file
+      
+######################################################################
+
+# location of parameter files
+_parfile=pardir + "iqp60.par"
+t=iraf.IrafTaskFactory(taskname="iqp60",
+                       value=_parfile,function=iqp60)
+
+######################################################################
+
+def main():
+
+    # Command line
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], 
+                                   "hw:",
+                                   ["help","when="])
+    except getopt.GetoptError:
+        # print help information and exit:
+        usage()
+        sys.exit(2)
+
+    endhow="never"
+    endwhen=""
+
+    for opt, val in opts:
+        # Usage info only
+        if opt in ("-h", "--help"):
+            usage()
+            sys.exit(1)
+        # End of run specification (as time)
+        elif opt in ("-w", "--when"):
+            endhow="time"
+            endwhen=val
+
+    inpat=args[0]
+
+    print "Running iqp60 with inpat=%s" % inpat
+    iqp60(inpat,endhow=endhow,endwhen=endwhen)
+    sys.exit(0)
+
+######################################################################
+
+def usage():
+
+    (xdir,xname)=os.path.split(sys.argv[0])
+    print "Usage:  %s [-w endwhen] \"filepattern\"" % xname
+
+##############################
+
+# Running as executable
+if __name__=='__main__':
+
+    main()

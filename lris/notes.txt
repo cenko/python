@@ -1,0 +1,64 @@
+Tried sky subtraction routines with several different parameters (note, 
+don't use easysky):
+
+Number		kx	ky	dkx
+try1		3	1	1.00
+try2		3	1	0.75
+try3		3	3	1.00
+try4		1	3	0.75
+try5		3	3	0.75
+try6		1	1	1.00
+try7		1	1	0.75
+try8		5	3	1.00
+
+Saved results as try1_sky and try1_sub (working on image r121017_0079.fits,
+observations of SN Elagabulus host galaxy, faint target at high airmass).
+
+First check to see if unbiased.
+
+In [76]: t1 = pyfits.open("try1_sub.fits")
+In [77]: t1d = t1[0].data
+In [80]: plt.plot(np.median(t1d[711:760,],axis=0),"ro")
+In [83]: t2 = pyfits.open("try2_sub.fits")
+In [84]: t2d = t2[0].data
+In [85]: plt.plot(np.median(t2d[711:760,],axis=0),"bs")
+In [88]: t3 = pyfits.open("try3_sub.fits")
+In [89]: t3d = t3[0].data
+In [90]: plt.plot(np.median(t3d[711:760,],axis=0), "gv")
+In [91]: t4 = pyfits.open("try4_sub.fits")
+In [92]: t4d = t4[0].data
+In [93]: plt.plot(np.median(t4d[711:760,],axis=0), "cp")
+In [94]: t5 = pyfits.open("try5_sub.fits")
+In [95]: t5d = t5[0].data
+In [98]: plt.plot(np.median(t5d[711:760,],axis=0), "yo")
+In [122]: t6 = pyfits.open("try6_sub.fits")
+In [123]: t6d = t6[0].data
+In [124]: plt.plot(np.median(t6d[711:760,],axis=0), "ks")
+In [129]: t7 = pyfits.open("try7_sub.fits")
+In [130]: t7d = t7[0].data
+In [131]: plt.plot(np.median(t7d[711:760,],axis=0), "cv")
+In [133]: t8 = pyfits.open("try8_sub.fits")
+In [134]: t8d = t8[0].data
+In [135]: plt.plot(np.median(t8d[711:760,],axis=0), "gd")
+In [97]: plt.plot([0, 4096], [0, 0], "k", lw=2)
+In [147]: plt.plot([0, 4096], [3, 3], "k", lw=2)
+In [148]: plt.plot([0, 4096], [-3, -3], "k", lw=2)
+
+Slight postive bias for most, lower orders seem a bit better.
+
+In [187]: sky = pyfits.open("rtr0079f.fits")
+In [188]: skyd = sky[0].data
+
+In [232]: fom1 = np.var(t1d[711:760,]*1.2,axis=0) / (np.median(skyd[711:760,],axis=0)*1.2+np.power(4.6,2))
+In [233]: fom2 = np.var(t2d[711:760,]*1.2,axis=0) / (np.median(skyd[711:760,],axis=0)*1.2+np.power(4.6,2))
+In [234]: fom3 = np.var(t3d[711:760,]*1.2,axis=0) / (np.median(skyd[711:760,],axis=0)*1.2+np.power(4.6,2))
+In [235]: fom4 = np.var(t4d[711:760,]*1.2,axis=0) / (np.median(skyd[711:760,],axis=0)*1.2+np.power(4.6,2))
+In [236]: fom5 = np.var(t5d[711:760,]*1.2,axis=0) / (np.median(skyd[711:760,],axis=0)*1.2+np.power(4.6,2))
+In [237]: fom6 = np.var(t6d[711:760,]*1.2,axis=0) / (np.median(skyd[711:760,],axis=0)*1.2+np.power(4.6,2))
+In [238]: fom7 = np.var(t7d[711:760,]*1.2,axis=0) / (np.median(skyd[711:760,],axis=0)*1.2+np.power(4.6,2))
+In [239]: fom8 = np.var(t8d[711:760,]*1.2,axis=0) / (np.median(skyd[711:760,],axis=0)*1.2+np.power(4.6,2))
+
+Basically no difference between any of these.  Stick with standard sky
+subtraction.
+
+

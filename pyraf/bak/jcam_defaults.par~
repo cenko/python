@@ -1,0 +1,4 @@
+instrument,s,a,"nirc",nirc|wirc|p60ir|c40ir|pfircam,,"Instrument"
+datadir,s,h,"/home/derekfox/iraf/cl/irredux/data",,,"Data Directory"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

@@ -1,0 +1,11 @@
+inlist,s,a,,,,"File containing list of images and shifts"
+phot,s,h,"gauss",phot|cone|gauss,,"Type of weighting (phot=none)"
+apertures,s,h,"10",,,"List of aperture radii in arcsec"
+skyrin,r,h,10.,0.,,"Inner radius of sky annulus (arcsec)"
+skyrout,r,h,15.,0.,,"Outer radius of sky annulus (arcsec)"
+zeropt,r,h,25.,0.,,,"Zero point of magnitude scale"
+dsply,b,h,yes,,,"Display ref image to check apertures?"
+clobber,b,h,yes,,,"Overwrite old images?"
+verbose,b,h,yes,,,"Give detailed output?"
+clean,b,h,no,,,"Clean files as we go?"
+mode,s,h,"q",,,

@@ -1,0 +1,8 @@
+inpat,s,a,"",,,"Glob pattern for images to analyze"
+endhow,s,h,"once",never|once|time,,"Completion condition"
+endwhen,s,h,"",,,"UT time at end (for endhow==time), as HH:MM"
+focmode,s,h,"all",all|nofocus|focus,,"Focus mode"
+logfile,s,h,"",,,"Log file name (blank for stdout)"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

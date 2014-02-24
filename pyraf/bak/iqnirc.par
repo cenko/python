@@ -1,0 +1,13 @@
+inpat,s,a,"s?????.fits",,,"Glob pattern for raw images"
+final,b,h,yes,,,"Create final-quality image (CR-reject, etc)?"
+forcecals,b,h,no,,,"Force re-creation of calibration files?"
+lampon,s,a,"lowlamp",,,"Object keyword value for dome flats w/ lamp on"
+lampoff,s,a,"lampsoff",,,"Object keyword value for dome flats w/ lamp off"
+logfile,s,a,"",,,"Name of log file for output or blank=none"
+objlist,s,a,"",,,"Comma-delimited list of objects to process or blank=all"
+filtlist,s,a,"",,,"Comma-delimited list of filters to process or blank=all"
+objflist,s,a,"",,,"Comma-delimited list of object-filter combos to process or blank=all" 
+steplist,s,a,"",,,"Comma-delimited list of processing steps to run or blank=all"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

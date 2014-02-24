@@ -1,0 +1,10 @@
+objkey=OBJECT
+filtkey=FILTER
+nitekey=DATE-OBS
+timekey=TIME-OBS
+expkey=INTTIME
+coaddkey=NSTACK
+rakey=RA
+deckey=DEC
+rotkey=NONE
+pixscale=0.494

@@ -1,0 +1,3 @@
+instrument,s,a,"nirc",nirc|wirc|p60ir|c40ir|pfircam,,"Instrument"
+datadir,s,h,"home$cl/irredux/data",,,"Data Directory"
+mode,s,h,"q",,,

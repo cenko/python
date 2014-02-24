@@ -1,0 +1,10 @@
+input,s,a,"/home/quixote/dlk/snrs/lris/G093_1_g.fits",,,"Input image Name"
+output,s,a,"temp.fits",,,"Output image name"
+scale,r,h,3.,1.,,"Scale by which to expand"
+border,r,h,0.,,,"Value for extended border"
+copyhead,b,h,yes,,,"Copy over input image header?
+"
+clobber,b,h,no,,,"Overwrite old images?"
+verbose,b,h,yes,,,"Give detailed output?"
+logfile,s,h,"STDOUT",,,"Output log file (if verbose)"
+mode,s,h,"q",,,

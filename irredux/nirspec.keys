@@ -1,0 +1,11 @@
+objkey=OBJECT 
+filtkey=FILNAME
+nitekey=DATE-OBS
+timekey=MJD-OBS
+expkey=ITIME2   
+coaddkey=COADDS2
+rakey=RA      
+deckey=DEC    
+rotkey=ROTPOSN
+pixscale=0.18
+

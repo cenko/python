@@ -1,0 +1,30 @@
+CATALOG_TYPE    FITS_LDAC       # "ASCII_HEAD","ASCII","FITS_1.0" or "FITS_LDAC"
+MAG_ZEROPOINT   27.5
+DETECT_THRESH    5.0            # <sigmas> or <threshold>,<ZP> in mag.arcsec-2
+ANALYSIS_THRESH  5.0            # <sigmas> or <threshold>,<ZP> in mag.arcsec-2
+DETECT_MINAREA   5            # minimum number of pixels above threshold
+
+FILTER          Y
+
+DEBLEND_NTHRESH 32              # Number of deblending sub-thresholds
+DEBLEND_MINCONT 0.005           # Minimum contrast parameter for deblending
+
+BACK_SIZE       128              # Background mesh: <size> or <width>,<height>
+BACK_FILTERSIZE 3               # Background filter: <size> or <width>,<height>
+ 
+BACKPHOTO_TYPE  GLOBAL          # can be "GLOBAL" or "LOCAL"
+
+MASK_TYPE        CORRECT        # type of detection MASKing: can be one of
+                                # NONE, BLANK or CORRECT
+
+PHOT_APERTURES   5 
+GAIN_KEY         GAIN
+SATUR_LEVEL      60000.0
+
+ASSOC_DATA       3
+ASSOC_PARAMS     1,2
+ 
+PARAMETERS_NAME /Users/scenko/python/ppqlc/prepsfex.param   # name of the file containing catalog contents
+FILTER_NAME     /Users/scenko/python/ppqlc/default.conv    # name of the file containing the filter
+STARNNW_NAME    /Users/scenko/python/ppqlc/default.nnw     # Neural-Network_Weight table filename
+

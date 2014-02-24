@@ -1,0 +1,12 @@
+inlist,s,a,"",,,"List of images to flatten"
+flat,s,a,"",,,"Flatfield image to use"
+outpfx,s,h,"f",,,"Prefix for output (flattened) files"
+normflat,b,h,yes,,,"Normalize flatfield before use?"
+statsec,s,h,"",,,"Statistics section for flatfield normalization"
+vignflat,b,h,no,,,"Trim flatfield vignetted regions?"
+filtsize,i,h,15,0.,,"Size of box for median filter"
+cutoff,r,h,0.3,0.,,"Minimum normalized value for flatfield"
+border,r,h,-100000.,,,"No-exposure value for border region"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

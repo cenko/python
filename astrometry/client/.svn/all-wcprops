@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/21983/trunk/src/astrometry/net/client
+END
+client.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/21983/trunk/src/astrometry/net/client/client.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/18885/trunk/src/astrometry/net/client/__init__.py
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/18877/trunk/src/astrometry/net/client/README
+END
+api_util.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/19206/trunk/src/astrometry/net/client/api_util.py
+END

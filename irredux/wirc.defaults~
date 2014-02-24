@@ -1,0 +1,91 @@
+print "-----------------------"
+print "WIRC parameter defaults"
+
+print "Setting defaults for make_dark"
+# make_dark
+make_dark.reject="minmax"
+make_dark.outpref="dark"
+make_dark.combine="median"
+make_dark.reject="minmax"
+make_dark.nlow=1
+make_dark.nhigh=2
+make_dark.nkeep=1
+
+print "Setting defaults for dark_subtr"
+dark_subtr.outpfx="d"
+
+print "Setting defaults for make_bpm"
+make_bpm.bpmkey="BPM0"
+make_bpm.combine="median"
+make_bpm.lthresh=5
+make_bpm.hthresh=5
+
+print "Setting defaults for make_flat"
+# make_flat
+make_flat.window=7
+make_flat.prefix="flat"
+make_flat.combine="average"
+make_flat.reject="minmax"
+make_flat.skymethod="iterstat"
+make_flat.scale="median"
+make_flat.statsec=""
+make_flat.maskscale=yes
+make_flat.maskcomb=yes
+make_flat.nlow=1
+make_flat.nhigh=2
+make_flat.nkeep=1
+
+print "Setting defaults for flat_divide"
+flat_divide.outpfx="f"
+
+print "Setting defaults for ircrzap"
+ircrzap.outpfx="c"
+ircrzap.bpmkey="BPM0"
+ircrzap.bpmupdate=yes
+ircrzap.bpmthresh=2
+
+print "Setting defaults for irfixpix"
+irfixpix.outpfx="b"
+irfixpix.bpmkey="BPM"
+
+print "Setting defaults for irmosaic"
+irmosaic.outpfx="S"
+#irmosaic.sfx=""
+irmosaic.dsply=yes
+irmosaic.doauto=yes
+irmosaic.docheck=yes
+irmosaic.makemask=yes
+irmosaic.autobox=15
+irmosaic.findstar=yes
+irmosaic.compute=yes
+irmosaic.align=yes
+irmosaic.shift=yes
+irmosaic.scale=no
+irmosaic.rotate=no
+irmosaic.combine=yes
+irmosaic.combmod="exp"
+irmosaic.combtype="average"
+irmosaic.reject="minmax"
+irmosaic.nlow=1
+irmosaic.nhigh=2
+irmosaic.nkeep=1
+irmosaic.subsets=yes
+irmosaic.nights=yes
+irmosaic.fixbad=no
+irmosaic.rotoffset=90
+irmosaic.rasign=1
+irmosaic.decsign=-1
+irmosaic.raindeg=no
+
+apphot.datapars.airmass="AIRMASS"
+apphot.datapars.scale=1
+print "Setting FWHM to 0.6 arcsec - change as needed"
+apphot.datapars.fwhmpsf=4
+apphot.datapars.emission=yes
+apphot.datapars.noise="poisson"
+apphot.datapars.readnoise=100
+apphot.datapars.epadu=6
+
+print "WIRC Defaults set!"
+print "------------------\n"
+

@@ -1,0 +1,9 @@
+inlist,s,a,"",,,"File containing list of images for sky subtraction"
+outpfx,s,h,"s",,,"Prefix for output images"
+skykey,s,h,"SKYVAL",,,"Keyword for value of sky"
+stat,s,h,"median",mean|mode|median,,"Sky statistic"
+lower,r,h,INDEF,,,"Lower threshold"
+upper,r,h,INDEF,,,"Upper threshold"
+clobber,b,h,yes,,,"Clobber old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

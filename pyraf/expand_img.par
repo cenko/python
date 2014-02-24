@@ -1,0 +1,7 @@
+input,s,a,"",,,"Input image Name"
+output,s,a,"",,,"Output image name"
+scale,i,h,2.,1.,,"Scale by which to expand"
+border,r,h,0.,,,"Value for extended border"
+clobber,b,h,no,,,"Overwrite old images?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

@@ -1,0 +1,36 @@
+#
+#	Parameters needed for SCAMP processing
+#
+
+#
+#	Extra parameters added by JMB
+#
+NUMBER
+
+#
+# CENTROID_KEYS
+#
+XWIN_IMAGE
+YWIN_IMAGE
+
+#
+# Flux
+#
+FLUX_PSF
+FLUXERR_PSF
+MAG_PSF
+MAGERR_PSF
+
+#
+# Advised additions (not mandatory)
+#
+FLAGS
+
+#
+# Aperture values (in case PSF fails)
+#
+FLUX_APER
+FLUXERR_APER
+MAG_APER
+MAGERR_APER
+

@@ -1,0 +1,4 @@
+instrument,s,a,"jcam",jcam,,"Instrument"
+datadir,s,h,"/home/derekfox/python/jcamrdux",,,"Data Directory"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

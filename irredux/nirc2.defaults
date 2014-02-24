@@ -1,0 +1,93 @@
+print "-----------------------"
+print "NIRC parameter defaults"
+
+print "Setting defaults for make_dark"
+# make_dark
+iraf.make_dark.reject="minmax"
+iraf.make_dark.outpref="dark"
+iraf.make_dark.combine="median"
+iraf.make_dark.reject="minmax"
+iraf.make_dark.nlow=1
+iraf.make_dark.nhigh=2
+iraf.make_dark.nkeep=1
+
+print "Setting defaults for dark_subtr"
+iraf.dark_subtr.outpfx="d"
+
+print "Setting defaults for make_bpm"
+iraf.make_bpm.bpmkey="BPM0"
+iraf.make_bpm.combine="median"
+iraf.make_bpm.lthresh=5
+iraf.make_bpm.hthresh=5
+
+print "Setting defaults for make_flat"
+# make_flat
+iraf.make_flat.window=7
+iraf.make_flat.prefix="flat"
+iraf.make_flat.combine="median"
+iraf.make_flat.reject="avsigclip"
+iraf.make_flat.skymethod="iterstat"
+iraf.make_flat.scale="median"
+iraf.make_flat.statsec=""
+iraf.make_flat.maskscale=yes
+iraf.make_flat.maskcomb=yes
+iraf.make_flat.nlow=1
+iraf.make_flat.nhigh=2
+iraf.make_flat.nkeep=1
+
+print "Setting defaults for flat_divide"
+iraf.flat_divide.outpfx="f"
+
+print "Setting defaults for ircrzap"
+iraf.ircrzap.outpfx="c"
+iraf.ircrzap.bpmkey="BPM0"
+iraf.ircrzap.bpmupdate=no
+iraf.ircrzap.bpmthresh=2
+
+print "Setting defaults for irfixpix"
+iraf.irfixpix.outpfx="b"
+iraf.irfixpix.bpmkey="BPM"
+
+print "Setting defaults for irmosaic"
+iraf.irmosaic.outpfx="S"
+iraf.irmosaic.dsply=yes
+iraf.irmosaic.doauto=yes
+iraf.irmosaic.docheck=yes
+iraf.irmosaic.makemask=yes
+iraf.irmosaic.autobox=15
+iraf.irmosaic.findstar=yes
+iraf.irmosaic.compute=yes
+iraf.irmosaic.align=yes
+iraf.irmosaic.shift=yes
+iraf.irmosaic.scale=no
+iraf.irmosaic.rotate=no
+iraf.irmosaic.combine=yes
+iraf.irmosaic.combmod="exp"
+iraf.irmosaic.combtype="median"
+iraf.irmosaic.reject="minmax"
+iraf.irmosaic.nlow=1
+iraf.irmosaic.nhigh=2
+iraf.irmosaic.nkeep=1
+iraf.irmosaic.subsets=yes
+iraf.irmosaic.nights=yes
+#iraf.irmosaic.rotoffset=-180.52
+iraf.irmosaic.rotoffset=0.0
+iraf.irmosaic.rasign=1
+iraf.irmosaic.decsign=1
+iraf.irmosaic.raindeg=yes
+iraf.irmosaic.rakey='RA'
+iraf.irmosaic.deckey='DEC'
+iraf.irmosaic.rotkey='ROTPOSN'
+
+iraf.apphot.datapars.airmass="AIRMASS"
+iraf.apphot.datapars.scale=1
+print "Setting FWHM to 0.6 arcsec - change as needed"
+iraf.apphot.datapars.fwhmpsf=3
+iraf.apphot.datapars.emission=yes
+iraf.apphot.datapars.noise="poisson"
+iraf.apphot.datapars.readnoise=60.0
+iraf.apphot.datapars.epadu=4
+
+print "NIRC Defaults set!"
+print "------------------\n"
+

@@ -1,0 +1,9 @@
+inlist,s,a,"",,,"List of images to defringe"
+fringe,s,a,"",,,"Fringe image to use"
+outpfx,s,h,"f",,,"Prefix for output (defringed) files"
+skykey,s,h,"SKYBKG",,,"Sky value header keyword"
+minlim,b,h,no,,,"Ignore data with values below minval?"
+minval,r,h,-90000.,,,"Minimum value (cutoff) for minlim"
+clobber,b,h,yes,,,"Overwrite old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

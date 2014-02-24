@@ -1,0 +1,13 @@
+inlist,s,a,"dark.list",,,"File containing names of images"
+outname,s,a,"bpm.pl",,,"Output name"
+bpmkey,s,h,"BPM0",,,"Keyword for BPM"
+modlist,s,h,,,,"List of files to modify"
+expkey,s,h,"TINT",,,"Keyword for exposure time"
+combine,s,h,"median",|average|median|,,"Method of combination"
+subsect,s,h,"",,,"Subsection for statistics"
+lthreshold,r,h,5.,0,,"Lower threshold for rejection"
+hthreshold,r,h,5.,0,,"Upper threshold for rejection"
+clean,b,h,yes,,,"Clean up temporary files?"
+clobber,b,h,yes,,,"Clobber old output?"
+verbose,b,h,yes,,,"Give detailed output?"
+mode,s,h,"q",,,

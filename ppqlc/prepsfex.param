@@ -1,0 +1,33 @@
+#
+#	Parameters needed for psfex processing
+#
+
+#
+# CENTROID_KEYS
+#
+X_IMAGE
+Y_IMAGE
+ELONGATION
+
+#
+# Flux
+#
+FLUX_APER
+FLUXERR_APER
+FLUX_RADIUS
+FLUX_MAX
+
+#
+# Advised additions (not mandatory)
+#
+FLAGS
+
+#
+# VIGNET
+#
+VIGNET(35,35)
+
+#
+# ASSOCIATION
+#
+VECTOR_ASSOC
