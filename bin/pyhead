@@ -1,1 +1,177 @@
-../../bin/pyhead
+#!/usr/bin/env python
+
+"""$Id: pyhead,v 1.2 2002/05/21 07:32:42 derekfox Exp derekfox $
+Use PyFITS to explore the headers of FITS files."""
+
+import os, sys, string, re, types
+import getopt
+import pyfits
+
+######################################################################
+
+def inform(infile):
+
+    fimg=pyfits.open(infile,ignore_missing_end=True)
+    fimg.info()
+    return
+
+######################################################################
+
+def parse(infile,hpars,extension=[]):
+
+    # Determine if a specific extension was specified
+    rexp1=re.search("(.+)\+(\d+)$",infile)    # file+ext
+    rexp2=re.search("(.+)\[(\d+)\]$",infile)  # file[ext#]
+    rexp3=re.search("(.+)\[(\w+)\]$",infile)  # file[extname]
+
+    # Decide what file/extension is desired
+    extn=[]
+    if rexp1:
+        # file+ext form
+	file=rexp1.group(1)
+        extn=[int(rexp1.group(2))]
+    elif rexp2:
+        # file[ext#] form
+	file=rexp2.group(1)
+	extn=[int(rexp2.group(2))]
+    elif rexp3:
+        # file[extname] form
+	file=rexp3.group(1)
+	extn=[rexp3.group(2)]
+    else:
+        # just plain file
+        file=infile
+
+    # Add supplied extensions
+    if extension:
+        extn.extend(extension)
+
+    # Open the FITS file
+    fimg=pyfits.open(file,ignore_missing_end=True)
+
+    # No extensions specified:  parse all of them
+    if not extn: extn=range(len(fimg))
+ 	
+    # Loop over extensions
+    for x in extn:
+
+	# Can't have extensions past the end
+	if isinstance(x,types.IntType) and x>=len(fimg):
+	    continue
+
+	# Check for named extension
+	try:
+	    idx=fimg.index_of(x)
+	except KeyError:
+            # skip over files w/out the requested extension
+	    continue
+
+	# Grab the header
+	head=fimg[x].header
+        if x!=0 and x!="PRIMARY":
+            fileext="%s[%s]  " % (file,x)
+        else:
+            fileext="%s  " % file
+
+        # Explicit parameters requested
+	if len(hpars)>0:
+	    prlabel=1
+	    for hpar in hpars:
+		if head.get(hpar)==None:
+                    tag="n.a."
+                else:
+                    tag=head[hpar]
+		if prlabel: 
+		    print fileext,
+		    prlabel=0
+		print " %s" % tag,
+	    if not prlabel: print
+
+        # Else print all parameters
+	else:
+  	    for hkey,hval in head.items():
+                if re.search("\S+",hkey):
+                    print "%s[%s]   %8s  " % (file,x,hkey), hval
+
+    return
+
+######################################################################
+
+def main():
+
+    # Command line
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], 
+                                   "hip:x:",
+                                   ["help","info","parameter=","extension="])
+    except getopt.GetoptError:
+        # print help information and exit:
+        usage()
+        sys.exit(2)
+
+    # Options parsing
+    doinfo=0
+    hpars=[]
+    extn=[]
+    for opt, val in opts:
+        # Usage info only
+        if opt in ("-h", "--help"):
+            usage()
+            sys.exit(1)
+        # FITS file structure only
+        elif opt in ("-i", "--info"):
+            doinfo=1
+        # Specific header parameter(s)
+        elif opt in ("-p", "--parameter"):
+            hpars.extend(val.split(","))
+        # Specific extension(s)
+        elif opt in ("-x", "--extension"):
+            valsp=val.split(",")
+            for v2 in valsp:
+                if re.search("^\d+$",v2):
+                    extn.append(int(v2))
+                else:
+                    extn.append(v2)
+
+    # Print header line
+    if len(hpars)>0 and not doinfo:
+	print "# File[ext]  ",
+	for hpar in hpars:
+	    print " %s" % hpar,
+	print
+
+    # Loop through files   
+    for file in args:
+
+	try:
+            if file=='-': file=sys.stdin
+            if doinfo:
+                inform(file)
+            else:
+                parse(file,hpars,extension=extn)
+                
+	except IOError:
+            try:
+                fsz=os.path.getsize(file)
+                sys.stderr.write("%s is not a FITS file.\n"% file)
+                sys.exit(3)
+            except OSError:
+                sys.stderr.write("File not found: %s\n"% file)
+                sys.exit(4)
+                
+    # Outta here
+    sys.exit(0)
+
+######################################################################
+
+def usage():
+
+    (xdir,xname)=os.path.split(sys.argv[0])
+    print "Usage:  %s [-p par1,par2] [-x ext1,ext2] <filename(s)>" % xname
+
+######################################################################
+
+# Running as executable
+if __name__=='__main__':
+
+    main()
