@@ -46,6 +46,7 @@ FDICT = {"SDSS-U": "UMAG", "SDSS-G": "GMAG", "SDSS-R": "RMAG",
          "SDSS-I": "IMAG", "SDSS-Z": "ZMAG"}
 SEEDICT = {"SDSS-U": "co", "SDSS-G": "go", "SDSS-R": "ro", 
            "SDSS-I": "bo", "SDSS-Z": "ko"}
+LMIGAIN = 2.95
 
 ##############################################################################
 
@@ -259,6 +260,7 @@ def lmi_detrend(imlist, otype="OBJECT", ppre="p", bkey="BIASSEC",
 	   and correct for non-linearity.'''
 	   
 	images = glob.glob(imlist)   
+        images.sort()
 	
 	# Loop through all images
 	for im in images:
@@ -313,6 +315,7 @@ def lmi_astrom(imlist, wpre="w"):
 	'''WCS fits for images.'''
 	
 	images = glob.glob(imlist)   
+        images.sort()
 	
 	# Loop through all images
 	for image in images:
@@ -480,7 +483,7 @@ def lmi_coadd(object, filt, align=no):
     
     # Find the appropriate images
     ims = []
-    allims = glob.glob("wfbplmi.????.fits")
+    allims = glob.glob("Flmi.????.fits")
     for im in allims:
     	h = pyfits.open(im)
     	if (h[0].header["OBJECT"] == object) and (h[0].header["FILTER"] == filt):
@@ -528,6 +531,7 @@ def lmi_stats(imlist, outf):
 	'''Basic image statistics.'''
 	
 	ims = glob.glob(imlist)
+        ims.sort()
 	outfile = open(outf, "w")
 	
 	for im in ims:
@@ -554,14 +558,17 @@ def lmi_stats(imlist, outf):
 		zp, zpu = stars.zeropt(refstars,method="mean",rejout=1)
 		if (zp == 0.0) or (zpu > 0.20):
 			tzp = 99.0
-			lmag = 99.0
+			lmag1 = 99.0
+                        lmag2 = 99.0
 		else:
 			tzp = 25.0 + zp - 2.5 * np.log10(float(exptime))
 			area = np.pi * np.power(1.2 * fwhm / LMIPIXSCALE, 2)
-			lmag = -2.5 * np.log10(3 * np.sqrt(area) * skysig / 100.0) + tzp		
-		outfile.write("%s%25s%15s%8s%8.2f%10.2f%10.2f%8.2f%10.3f%10.3f%10.3f\n" % 
+                        lmag1 = -2.5 * np.log10(3 * np.sqrt(area) * skysig / exptime) + tzp
+			lmag2 = -2.5 * np.log10(3 * np.sqrt(area) * skysig / np.sqrt(100.0 * exptime)) + tzp 
+
+		outfile.write("%s%25s%15s%8s%8.2f%10.2f%10.2f%8.2f%10.3f%10.3f%10.3f%10.3f\n" % 
 		              (im, tobs, obj, filt, exptime, skybkg, skysig,
-		               fwhm, tzp, zpu, lmag))
+		               fwhm, tzp, zpu, lmag1, lmag2))
 	
 	outfile.close()
 	return
@@ -574,6 +581,7 @@ def lmi_defringe(imlist, filts=["SDSS-Z"], fkey="FILTER", skybkg="SKYBKG",
 	'''Create and apply fringe frame.'''
 	
 	ims = glob.glob(imlist)
+        ims.sort()
 	
 	for filt in filts:
 		
@@ -583,6 +591,9 @@ def lmi_defringe(imlist, filts=["SDSS-Z"], fkey="FILTER", skybkg="SKYBKG",
 			hdr = pyfits.open(im)
 			if hdr[0].header[fkey] == filt:
 				fims.append(im)
+
+                if len(fims)==0:
+                    continue
 		
 		fimlist = ""
 		for fim in fims:
@@ -609,8 +620,11 @@ def lmi_fullnight(imlist, outf):
 	lmi_defringe("fbplmi.????.fits")
 	lmi_astrom("Flmi.????.fits")
 	lmi_stats("Flmi.????.fits", outf)
-	lmi_plots("Flmi.????.fits", outf)
-	
+	imdict = lmi_plots("Flmi.????.fits", outf)
+	for obj in imdict:
+            for filt in imdict[obj]:
+                lmi_coadd(obj, filt, align=yes)
+
 	return
 	
 ##########################################################################
@@ -684,6 +698,8 @@ def lmi_plots(imlist, dfile):
 	ax3.set_ylabel("Limiting Magnitude (100 s exposure)")
 	ax3.legend([c1, c2, c3, c4, c5], ["u'", "g'", "r'", "i'", "z'"], numpoints=1)
 	ax3.set_ylim(25.0, 20.0)
+
+	return imdict
 	
 		
 		
